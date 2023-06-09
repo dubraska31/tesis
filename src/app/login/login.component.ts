@@ -27,26 +27,11 @@ export class LoginComponent {
   onSubmit(): void {
     const { username, password } = this.form;
 
-    if(username === 'esba' && password === 'hola'){
+    if (username === 'esba' && password === 'hola') {
       this.router.navigate(['/dashboard']);
     } else {
       this.isLoginFailed = true;
       this.errorMessage = "Credenciales erroneas";
     }
-
-    // this.authService.login(username, password).subscribe({
-    //   next: data => {
-    //     this.storageService.saveUser(data);
-
-    //     this.isLoginFailed = false;
-    //     this.isLoggedIn = true;
-    //     this.roles = this.storageService.getUser().roles;
-    //     this.reloadPage();
-    //   },
-    //   error: err => {
-    //     this.errorMessage = err.error.message;
-    //     this.isLoginFailed = true;
-    //   }
-    // });
   }
 }

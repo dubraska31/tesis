@@ -1,8 +1,13 @@
 <h2>Top Heroes</h2>
-<div class="heroes-menu">
-  <a *ngFor="let hero of heroes"
-      routerLink="/detail/{{hero.id}}">
-      {{hero.name}}
+<div class="botonAlineadoDerecha">
+  <button type="button" (click)="logout()">
+    Cerrar sesion
+  </button>
+</div>
+
+<div class="heroes-menu margenTop30px">
+  <a *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}">
+    {{hero.name}}
   </a>
 </div>
 
