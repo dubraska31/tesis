@@ -22,6 +22,13 @@ export class DashboardComponent implements OnInit {
       .subscribe(comidas => this.comidas = comidas);
   }
 
+  agregarAlCarrito(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.heroService.addHero({ name } as Hero)
+      .subscribe();
+  }
+
   logout(): void {
     this.router.navigate(['/login']);
   }

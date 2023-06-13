@@ -1,23 +1,23 @@
 <nav>
-    <a routerLink="/admin-home">Admin Home</a>
-  </nav>
-  
-  <h2 class="margenTop30px">Comidas</h2>
-  
-  <div>
-    <label for="new-hero">Nombre: </label>
-    <input id="new-hero" #heroName />
-  
-    <button type="button" class="add-button" (click)="add(heroName.value); heroName.value=''">
-      Agregar comida
-    </button>
-  </div>
-  
-  <ul class="heroes">
-    <li *ngFor="let hero of heroes">
-      <a routerLink="/detail/{{hero.id}}">
-        <span class="badge">{{hero.id}}</span> {{hero.name}}
-      </a>
-      <button type="button" class="delete" title="delete hero" (click)="delete(hero)">x</button>
-    </li>
-  </ul>
+  <a routerLink="/admin-home">Admin Home</a>
+</nav>
+
+<h2 class="margenTop30px">Comidas</h2>
+
+<div>
+  <label for="new-hero">Nombre: </label>
+  <input id="new-hero" #heroName />
+
+  <button type="button" class="add-button" (click)="add(heroName.value); heroName.value=''">
+    Agregar comida
+  </button>
+</div>
+
+<ul class="heroes">
+  <li *ngFor="let comida of comidas">
+    <a routerLink="/detail/{{comida.id}}">
+      <span class="badge">{{comida.id}}</span> {{comida.name}}
+    </a>
+    <button type="button" class="delete" title="delete hero" (click)="delete(comida)">x</button>
+  </li>
+</ul>

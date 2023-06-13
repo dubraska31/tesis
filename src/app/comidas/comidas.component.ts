@@ -10,31 +10,31 @@ import { Router } from '@angular/router';
 })
 export class ComidasComponent {
 
-  heroes: Hero[] = [];
+  comidas: Hero[] = [];
 
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
-    this.getHeroes();
+    this.getComidas();
   }
 
-  getHeroes(): void {
+  getComidas(): void {
     this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes);
+      .subscribe(comidas => this.comidas = comidas);
   }
 
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
     this.heroService.addHero({ name } as Hero)
-      .subscribe(hero => {
-        this.heroes.push(hero);
+      .subscribe(comida => {
+        this.comidas.push(comida);
       });
   }
 
-  delete(hero: Hero): void {
-    this.heroes = this.heroes.filter(h => h !== hero);
-    this.heroService.deleteHero(hero.id).subscribe();
+  delete(comida: Hero): void {
+    this.comidas = this.comidas.filter(c => c !== comida);
+    this.heroService.deleteHero(comida.id).subscribe();
   }
 
 }

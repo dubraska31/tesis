@@ -6,17 +6,21 @@
   </button>
 </div>
 
+<button type="button" routerLink="/carrito">
+  Carrito
+</button>
+
 <app-hero-search></app-hero-search>
 
 <div class="heroes-menu margenTop30px">
-  <a *ngFor="let hero of comidas" routerLink="/detail/{{hero.id}}">
-    {{hero.name}}
+  <a *ngFor="let comida of comidas" routerLink="/detail/{{comida.id}}">
+    {{comida.name}}
 
-    <ng-container *ngIf="hero.image == null">
+    <ng-container *ngIf="comida.image == null">
       <img src="../../assets/default.jpg" width="100" height="100">
     </ng-container>
-    <ng-container *ngIf="hero.image != null">
-      <img src="{{hero.image}}" width="100" height="100">
+    <ng-container *ngIf="comida.image != null">
+      <img src="{{comida.image}}" width="100" height="100">
     </ng-container>
   </a>
 </div>
