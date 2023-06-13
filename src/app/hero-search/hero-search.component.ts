@@ -44,7 +44,7 @@ export class HeroSearchComponent implements OnInit {
 
   agregarAlCarrito(comida: Hero): void {
     this.carritoService.agregarAlCarrito(comida);
-    alert('Agregada al carrito!');
+    alert('Agregado al carrito!');
   }
 
 }
