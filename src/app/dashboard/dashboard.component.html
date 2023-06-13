@@ -1,14 +1,22 @@
-<h2>Top Heroes</h2>
+<h2>Menu</h2>
+
 <div class="botonAlineadoDerecha">
   <button type="button" (click)="logout()">
     Cerrar sesion
   </button>
 </div>
 
+<app-hero-search></app-hero-search>
+
 <div class="heroes-menu margenTop30px">
   <a *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}">
     {{hero.name}}
+
+    <ng-container *ngIf="hero.image == null">
+      <img src="../../assets/default.jpg" width="100" height="100">
+    </ng-container>
+    <ng-container *ngIf="hero.image != null">
+      <img src="{{hero.image}}" width="100" height="100">
+    </ng-container>
   </a>
 </div>
-
-<app-hero-search></app-hero-search>
