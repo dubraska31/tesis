@@ -9,7 +9,7 @@
 <app-hero-search></app-hero-search>
 
 <div class="heroes-menu margenTop30px">
-  <a *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}">
+  <a *ngFor="let hero of comidas" routerLink="/detail/{{hero.id}}">
     {{hero.name}}
 
     <ng-container *ngIf="hero.image == null">

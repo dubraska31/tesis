@@ -16,6 +16,7 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { MessagesComponent } from './messages/messages.component';
 import { LoginComponent } from './login/login.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { ComidasComponent } from './comidas/comidas.component';
 
 @NgModule({
   imports: [
@@ -39,7 +40,8 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
     MessagesComponent,
     HeroSearchComponent,
     LoginComponent,
-    AdminHomeComponent
+    AdminHomeComponent,
+    ComidasComponent
   ],
   bootstrap: [ AppComponent ]
 })

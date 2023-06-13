@@ -9,17 +9,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  heroes: Hero[] = [];
+  comidas: Hero[] = [];
 
   constructor(private heroService: HeroService, private router: Router) { }
 
   ngOnInit(): void {
-    this.getHeroes();
+    this.getComidas();
   }
 
-  getHeroes(): void {
+  getComidas(): void {
     this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes);
+      .subscribe(comidas => this.comidas = comidas);
   }
 
   logout(): void {
