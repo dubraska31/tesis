@@ -13,7 +13,7 @@
 <app-hero-search></app-hero-search>
 
 <div class="heroes-menu margenTop30px">
-  <a *ngFor="let comida of comidas" routerLink="/detail/{{comida.id}}">
+  <a *ngFor="let comida of comidas" (click)="agregarAlCarrito(comida)">
     {{comida.name}}
 
     <ng-container *ngIf="comida.image == null">

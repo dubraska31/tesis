@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { Router } from '@angular/router';
+import { CarritoService } from '../carrito.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +12,11 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
   comidas: Hero[] = [];
 
-  constructor(private heroService: HeroService, private router: Router) { }
+  constructor(
+    private heroService: HeroService,
+    private router: Router,
+    private carritoService: CarritoService) {
+  }
 
   ngOnInit(): void {
     this.getComidas();
@@ -22,11 +27,9 @@ export class DashboardComponent implements OnInit {
       .subscribe(comidas => this.comidas = comidas);
   }
 
-  agregarAlCarrito(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.heroService.addHero({ name } as Hero)
-      .subscribe();
+  agregarAlCarrito(comida: Hero): void {
+    this.carritoService.agregarAlCarrito(comida);
+    alert('Agregada al carrito!');
   }
 
   logout(): void {
