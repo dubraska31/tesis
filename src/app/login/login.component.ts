@@ -29,6 +29,8 @@ export class LoginComponent {
 
     if (username === 'esba' && password === 'hola') {
       this.router.navigate(['/dashboard']);
+    } else if (username === 'admin' && password === 'hola') {
+      this.router.navigate(['/admin-home']);
     } else {
       this.isLoginFailed = true;
       this.errorMessage = "Credenciales erroneas";
