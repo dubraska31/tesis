@@ -3,6 +3,8 @@ import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { Router } from '@angular/router';
 import { CarritoService } from '../carrito.service';
+import { RocketDeliveryService } from '../rocket-delivery.service';
+import { Menu } from '../menu';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,15 +13,23 @@ import { CarritoService } from '../carrito.service';
 })
 export class DashboardComponent implements OnInit {
   comidas: Hero[] = [];
+  menus: Menu[] = [];
 
   constructor(
     private heroService: HeroService,
+    private rocketDeliveryService: RocketDeliveryService,
     private router: Router,
     private carritoService: CarritoService) {
   }
 
   ngOnInit(): void {
-    this.getComidas();
+    // this.getComidas();
+    this.getMenus();
+  }
+
+  getMenus(): void {
+    this.rocketDeliveryService.getMenus()
+      .subscribe(menus => this.menus = menus);
   }
 
   getComidas(): void {

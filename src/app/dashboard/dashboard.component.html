@@ -12,7 +12,7 @@
 
 <app-hero-search></app-hero-search>
 
-<div class="heroes-menu margenTop30px">
+<!-- <div class="heroes-menu margenTop30px">
   <a *ngFor="let comida of comidas" (click)="agregarAlCarrito(comida)">
     {{comida.name}}
 
@@ -21,6 +21,19 @@
     </ng-container>
     <ng-container *ngIf="comida.image != null">
       <img src="{{comida.image}}" width="100" height="100">
+    </ng-container>
+  </a>
+</div> -->
+
+<div class="heroes-menu margenTop30px">
+  <a *ngFor="let menu of menus">
+    {{menu.nombreMenu}}
+
+    <ng-container *ngIf="menu.imagen_menu == null">
+      <img src="../../assets/default.jpg" width="100" height="100">
+    </ng-container>
+    <ng-container *ngIf="menu.imagen_menu != null">
+      <img src="{{menu.imagen_menu}}" width="100" height="100">
     </ng-container>
   </a>
 </div>
