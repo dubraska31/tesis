@@ -8,7 +8,7 @@ import {
 
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
-import { CarritoService } from '../carrito.service';
+import { UtilService } from '../util-service';
 
 @Component({
   selector: 'app-hero-search',
@@ -21,7 +21,7 @@ export class HeroSearchComponent implements OnInit {
 
   constructor(
     private heroService: HeroService,
-    private carritoService: CarritoService) {
+    private utilService: UtilService) {
   }
 
   ngOnInit(): void {
@@ -43,7 +43,7 @@ export class HeroSearchComponent implements OnInit {
   }
 
   agregarAlCarrito(comida: Hero): void {
-    this.carritoService.agregarAlCarrito(comida);
+    this.utilService.agregarComidaCarrito(comida);
     alert('Agregado al carrito!');
   }
 

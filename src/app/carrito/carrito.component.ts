@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Hero } from '../hero';
-import { CarritoService } from '../carrito.service';
+import { UtilService } from '../util-service';
 
 @Component({
   selector: 'app-carrito',
@@ -12,7 +12,7 @@ export class CarritoComponent {
   comidas: Hero[] = [];
 
   constructor(
-    private carritoService: CarritoService) {
+    private utilService: UtilService) {
   }
 
   ngOnInit(): void {
@@ -20,7 +20,7 @@ export class CarritoComponent {
   }
 
   getComidas(): void {
-    this.comidas = this.carritoService.getComidas();
+    this.comidas = this.utilService.getComidasCarrito();
   }
 
 }

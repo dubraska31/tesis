@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
-import { Router } from '@angular/router';
-import { CarritoService } from '../carrito.service';
-import { RocketDeliveryService } from '../rocket-delivery.service';
 import { Menu } from '../menu';
+import { RocketDeliveryService } from '../rocket-delivery.service';
+import { UtilService } from '../util-service';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
     private heroService: HeroService,
     private rocketDeliveryService: RocketDeliveryService,
     private router: Router,
-    private carritoService: CarritoService) {
+    private utilService: UtilService) {
   }
 
   ngOnInit(): void {
@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit {
   }
 
   agregarAlCarrito(comida: Hero): void {
-    this.carritoService.agregarAlCarrito(comida);
+    this.utilService.agregarComidaCarrito(comida);
     alert('Agregado al carrito!');
   }
 
