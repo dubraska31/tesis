@@ -22,7 +22,7 @@ h2 {
 }
 
 a {
-  background-color: #3f525c;
+  background-color: #85a1b1;
   border-radius: 2px;
   padding: 1rem;
   font-size: 1.2rem;
@@ -49,5 +49,6 @@ a {
 }
 
 a:hover {
-  background-color: black;
+  background-color: #424f57;
+  color:#fff !important;
 }
