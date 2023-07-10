@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
-import { Router } from '@angular/router';
+import { Menu } from '../menu';
+import { RocketDeliveryService } from '../rocket-delivery.service';
 
 @Component({
   selector: 'app-comidas',
@@ -11,11 +12,21 @@ import { Router } from '@angular/router';
 export class ComidasComponent {
 
   comidas: Hero[] = [];
+  menus: Menu[] = [];
 
-  constructor(private heroService: HeroService) { }
+  constructor(
+    private heroService: HeroService,
+    private rocketDeliveryService: RocketDeliveryService
+  ) { }
 
   ngOnInit(): void {
-    this.getComidas();
+    // this.getComidas();
+    this.getMenus();
+  }
+
+  getMenus(): void {
+    this.rocketDeliveryService.getMenus()
+      .subscribe(menus => this.menus = menus);
   }
 
   getComidas(): void {
@@ -37,4 +48,8 @@ export class ComidasComponent {
     this.heroService.deleteHero(comida.id).subscribe();
   }
 
+  deleteMenu(menu: Menu): void {
+    this.menus = this.menus.filter(m => m !== menu);
+    this.heroService.deleteHero(menu.idMenu).subscribe();
+  }
 }

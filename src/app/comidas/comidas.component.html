@@ -13,11 +13,20 @@
   </button>
 </div>
 
-<ul class="heroes">
+<!-- <ul class="heroes">
   <li *ngFor="let comida of comidas">
     <a routerLink="/detail/{{comida.id}}">
       <span class="badge">{{comida.id}}</span> {{comida.name}}
     </a>
     <button type="button" class="delete" title="delete hero" (click)="delete(comida)">x</button>
+  </li>
+</ul> -->
+
+<ul class="heroes">
+  <li *ngFor="let menu of menus">
+    <a routerLink="/detail/{{menu.idMenu}}">
+      <span class="badge">{{menu.idMenu}}</span> {{menu.descripcion_menu}}
+    </a>
+    <button type="button" class="delete" title="delete hero" (click)="deleteMenu(menu)">x</button>
   </li>
 </ul>
