@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { RocketDeliveryService } from '../rocket-delivery.service';
+import { LoginResponse } from '../login-response';
 
 @Component({
   selector: 'app-login',
@@ -17,8 +19,12 @@ export class LoginComponent {
   errorMessage = '';
   roles: string[] = [];
   route: any;
+  token: string = '';
+  loginResponse: LoginResponse = { token: '' };
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private rocketDeliveryService: RocketDeliveryService) {
   }
 
   ngOnInit(): void {
@@ -27,13 +33,20 @@ export class LoginComponent {
   onSubmit(): void {
     const { username, password } = this.form;
 
-    if (username === 'esba' && password === 'hola') {
-      this.router.navigate(['/dashboard']);
-    } else if (username === 'admin' && password === 'hola') {
-      this.router.navigate(['/admin-home']);
-    } else {
-      this.isLoginFailed = true;
-      this.errorMessage = "Credenciales erroneas";
-    }
+    this.rocketDeliveryService.login(username, password)
+      .subscribe(data => {
+        this.loginResponse = data
+        console.log('this.loginResponse.token: ' + this.loginResponse.token);
+
+        if (username === 'admin') {
+          this.router.navigate(['/admin-home']);
+        } else {
+          this.router.navigate(['/dashboard']);
+        }
+      }, error => {
+        console.log('error: ' + error.message);
+        this.isLoginFailed = true;
+        this.errorMessage = "Credenciales erroneas";
+      });
   }
 }

@@ -1,14 +1,13 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { MessageService } from "./message.service";
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { LoginResponse } from "./login-response";
 import { Menu } from "./menu";
 
 @Injectable({ providedIn: 'root' })
 export class RocketDeliveryService {
 
-    private rocketDeliveryUrl = 'http://localhost:8080/api/';  // URL to web api
+    private rocketDeliveryUrl = 'http://localhost:8080/';  // URL to web api
     private token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiJ9.PRTaW4zUSHd5cWnQxsRcdnue5FBc3mtijvnELrPWYPGQDDhrCWLsvJUHmGXnp2vLheztEA5yzpzfovPe8Cwgcn7eK939kuc_RU87kk15OGruWmTa8Qz_Ztu1CXWB-0SbklTbPxQ26XjP4Vk3i4TttjKdLNWMJdw4X2HEjCzRK97I06ThjspffXiiSEgXe9TSfALS5V_WaWpEb2mjRNCO10lPaG7Wd1rzyotV92LuYPpxgqPjJn0woGAVFWG2jxy8rjfSSg-7qdW6BlriuwPUtfkFGfpGKf9gJG1xRuVuONJ0ix5dzJashL2KcwUI9qGcxICqPe1iVjtfZirYjBDX4A'
 
     httpOptions = {
@@ -19,33 +18,23 @@ export class RocketDeliveryService {
     };
 
     constructor(
-        private http: HttpClient,
-        private messageService: MessageService) { }
+        private http: HttpClient
+    ) { }
 
     getMenus(): Observable<Menu[]> {
-        return this.http.get<Menu[]>(this.rocketDeliveryUrl + 'listar-menus', this.httpOptions)
-            .pipe(
-                tap(_ => this.log('fetched Menus')),
-                catchError(this.handleError<Menu[]>('getMenus', []))
-            );
+        return this.http.get<Menu[]>(this.rocketDeliveryUrl + 'api/listar-menus', this.httpOptions);
     }
 
-    private handleError<T>(operation = 'operation', result?: T) {
-        return (error: any): Observable<T> => {
+    login(username: string, password: string): Observable<LoginResponse> {
+        const body = new HttpParams()
+            .set('username', username)
+            .set('password', password);
 
-            // TODO: send the error to remote logging infrastructure
-            console.error(error); // log to console instead
-
-            // TODO: better job of transforming error for user consumption
-            this.log(`${operation} failed: ${error.message}`);
-
-            // Let the app keep running by returning an empty result.
-            return of(result as T);
-        };
+        return this.http.post<LoginResponse>(this.rocketDeliveryUrl + 'login',
+            body.toString(),
+            {
+                headers: new HttpHeaders()
+                    .set('Content-Type', 'application/x-www-form-urlencoded')
+            });
     }
-
-    private log(message: string) {
-        this.messageService.add(`HeroService: ${message}`);
-    }
-
 }
