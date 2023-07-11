@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from 'rxjs';
 import { LoginResponse } from "./login-response";
 import { Menu } from "./menu";
+import { Contacto } from "./contacto";
 import { UtilService } from "./util-service";
 
 @Injectable({ providedIn: 'root' })
@@ -14,7 +15,7 @@ export class RocketDeliveryService {
         private http: HttpClient,
         private utilService: UtilService
     ) { }
-
+     //listar menu   
     getMenus(): Observable<Menu[]> {
         return this.http.get<Menu[]>(this.rocketDeliveryUrl + 'api/listar-menus',
             {
@@ -24,6 +25,22 @@ export class RocketDeliveryService {
                 })
             });
     }
+    //listar contactos
+    getContactos(): Observable<Contacto[]> {
+        return this.http.get<Contacto[]>(this.rocketDeliveryUrl + 'api/listar-contactos',
+            {
+                headers: new HttpHeaders({
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + this.utilService.getToken()
+                })
+            });
+    }
+
+
+
+
+
+
 
     login(username: string, password: string): Observable<LoginResponse> {
         const body = new HttpParams()

@@ -17,6 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { ComidasComponent } from './comidas/comidas.component';
 import { CarritoComponent } from './carrito/carrito.component';
+import { ContactosComponent } from './contactos/contactos.component';
 
 @NgModule({
   imports: [
@@ -41,7 +42,8 @@ import { CarritoComponent } from './carrito/carrito.component';
     LoginComponent,
     AdminHomeComponent,
     ComidasComponent,
-    CarritoComponent
+    CarritoComponent,
+    ContactosComponent
   ],
   bootstrap: [ AppComponent ]
 })
