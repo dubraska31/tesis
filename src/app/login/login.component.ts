@@ -30,6 +30,7 @@ export class LoginComponent {
   ) { }
 
   ngOnInit(): void {
+    this.utilService.limpiarCarrito();
   }
 
   onSubmit(): void {
