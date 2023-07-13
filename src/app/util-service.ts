@@ -4,15 +4,14 @@ import { Hero } from "./hero";
 @Injectable({ providedIn: 'root' })
 
 export class UtilService {
-    private token: string = '';
     private comidasCarrito: Hero[] = [];
 
-    public getToken(): string {
-        return this.token;
+    public getToken(): string | null {
+        return localStorage.getItem('token');
     }
 
     public setToken(value: string) {
-        this.token = value;
+      localStorage.setItem('token', value);
     }
 
     public getComidasCarrito(): Hero[] {
