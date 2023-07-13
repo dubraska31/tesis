@@ -17,6 +17,7 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { MessagesComponent } from './messages/messages.component';
+import { PagoComponent } from './pago/pago.component';
 
 @NgModule({
   imports: [
@@ -43,7 +44,8 @@ import { MessagesComponent } from './messages/messages.component';
     CarritoComponent,
     ContactosComponent,
     AgregarMenuComponent,
-    MenuComponent
+    MenuComponent,
+    PagoComponent
   ],
   bootstrap: [AppComponent]
 })
