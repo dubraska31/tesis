@@ -1,23 +1,22 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
 
 import { AppRoutingModule } from './app-routing.module';
 
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { AgregarMenuComponent } from './agregar-menu/agregar-menu.component';
 import { AppComponent } from './app.component';
+import { CarritoComponent } from './carrito/carrito.component';
+import { ContactosComponent } from './contactos/contactos.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
-import { MessagesComponent } from './messages/messages.component';
 import { LoginComponent } from './login/login.component';
-import { AdminHomeComponent } from './admin-home/admin-home.component';
-import { ComidasComponent } from './comidas/comidas.component';
-import { CarritoComponent } from './carrito/carrito.component';
-import { ContactosComponent } from './contactos/contactos.component';
+import { MenuComponent } from './menu/menu.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   imports: [
@@ -41,10 +40,11 @@ import { ContactosComponent } from './contactos/contactos.component';
     HeroSearchComponent,
     LoginComponent,
     AdminHomeComponent,
-    ComidasComponent,
     CarritoComponent,
-    ContactosComponent
+    ContactosComponent,
+    AgregarMenuComponent,
+    MenuComponent
   ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

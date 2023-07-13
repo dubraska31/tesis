@@ -5,11 +5,11 @@ import { Menu } from '../menu';
 import { RocketDeliveryService } from '../rocket-delivery.service';
 
 @Component({
-  selector: 'app-comidas',
-  templateUrl: './comidas.component.html',
-  styleUrls: ['./comidas.component.css'],
+  selector: 'app-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.css']
 })
-export class ComidasComponent {
+export class MenuComponent {
   comidas: Hero[] = [];
   menus: Menu[] = [];
 
@@ -54,4 +54,5 @@ export class ComidasComponent {
     this.menus = this.menus.filter((m) => m !== menu);
     this.heroService.deleteHero(menu.idMenu).subscribe();
   }
+
 }
