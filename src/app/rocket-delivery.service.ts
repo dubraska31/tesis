@@ -10,7 +10,7 @@ import { UtilService } from './util-service';
 export class RocketDeliveryService {
   private rocketDeliveryUrl = 'http://localhost:8080/'; // URL to web api
 
-  constructor(private http: HttpClient, private utilService: UtilService) {}
+  constructor(private http: HttpClient, private utilService: UtilService) { }
 
   // login
   login(username: string, password: string): Observable<LoginResponse> {

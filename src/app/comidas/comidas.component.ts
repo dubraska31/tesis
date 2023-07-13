@@ -16,7 +16,7 @@ export class ComidasComponent {
   constructor(
     private heroService: HeroService,
     private rocketDeliveryService: RocketDeliveryService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     // this.getComidas();
