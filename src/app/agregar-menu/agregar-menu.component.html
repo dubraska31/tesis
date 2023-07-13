@@ -1,1 +1,34 @@
-<p>agregar-menu works!</p>
+<nav>
+  <a routerLink="/admin-home">Admin Home</a>
+</nav>
+
+<h2 class="margenTop30px">Agregar menu</h2>
+
+<table>
+  <tr>
+    <td><label for="new-hero">nombre menu: </label></td>
+    <td><input [(ngModel)]="menu.nombreMenu" /></td>
+  </tr>
+  <tr>
+    <td><label for="new-hero">descripcion menu: </label></td>
+    <td><input [(ngModel)]="menu.descripcion_menu" /></td>
+  </tr>
+  <tr>
+    <td><label for="new-hero">precio: </label></td>
+    <td><input type="number" [(ngModel)]="menu.precio" /></td>
+  </tr>
+  <tr>
+    <td><label for="new-hero">imagen menu: </label></td>
+    <td><input [(ngModel)]="menu.imagen_menu" /></td>
+  </tr>
+  <tr>
+    <td><label for="new-hero">disponible: </label></td>
+    <td><input type="checkbox" [(ngModel)]="menu.disponible" /></td>
+  </tr>
+</table>
+
+<div>
+  <button type="button" class="add-button" (click)="agregarMenu()" routerLink="/menu">
+    Agregar comida
+  </button>
+</div>

@@ -35,16 +35,6 @@ export class MenuComponent {
       .subscribe((comidas) => (this.comidas = comidas));
   }
 
-  add(name: string): void {
-    name = name.trim();
-    if (!name) {
-      return;
-    }
-    this.heroService.addHero({ name } as Hero).subscribe((comida) => {
-      this.comidas.push(comida);
-    });
-  }
-
   delete(comida: Hero): void {
     this.comidas = this.comidas.filter((c) => c !== comida);
     this.heroService.deleteHero(comida.id).subscribe();

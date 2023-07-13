@@ -8,6 +8,7 @@ import { UtilService } from './util-service';
 
 @Injectable({ providedIn: 'root' })
 export class RocketDeliveryService {
+
   private rocketDeliveryUrl = 'http://localhost:8080/'; // URL to web api
 
   constructor(private http: HttpClient, private utilService: UtilService) { }
@@ -33,6 +34,16 @@ export class RocketDeliveryService {
   // listar menu
   getMenus(): Observable<Menu[]> {
     return this.http.get<Menu[]>(this.rocketDeliveryUrl + 'api/listar-menus', {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.utilService.getToken(),
+      }),
+    });
+  }
+
+  // agregar menu
+  agregarMenu(menu: Menu): Observable<Menu> {
+    return this.http.post<Menu>(this.rocketDeliveryUrl + 'api/crear-menu', menu, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + this.utilService.getToken(),
