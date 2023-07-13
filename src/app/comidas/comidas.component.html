@@ -8,7 +8,11 @@
   <label for="new-hero">Nombre: </label>
   <input id="new-hero" #heroName />
 
-  <button type="button" class="add-button" (click)="add(heroName.value); heroName.value=''">
+  <button
+    type="button"
+    class="add-button"
+    (click)="add(heroName.value); heroName.value = ''"
+  >
     Agregar comida
   </button>
 </div>
@@ -24,9 +28,16 @@
 
 <ul class="heroes">
   <li *ngFor="let menu of menus">
-    <a routerLink="/detail/{{menu.idMenu}}">
-      <span class="badge">{{menu.idMenu}}</span> {{menu.descripcion_menu}}
+    <a routerLink="/detail/{{ menu.idMenu }}">
+      <span class="badge">{{ menu.idMenu }}</span> {{ menu.descripcion_menu }}
     </a>
-    <button type="button" class="delete" title="delete hero" (click)="deleteMenu(menu)">x</button>
+    <button
+      type="button"
+      class="delete"
+      title="delete hero"
+      (click)="deleteMenu(menu)"
+    >
+      x
+    </button>
   </li>
 </ul>
