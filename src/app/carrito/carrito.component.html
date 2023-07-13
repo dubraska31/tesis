@@ -1,17 +1,17 @@
 <h2>Carrito</h2>
 
 <nav>
-    <a routerLink="/dashboard">Volver</a>
+  <a routerLink="/dashboard">Volver</a>
 </nav>
 
 <ul class="heroes">
-    <li *ngFor="let comida of comidas">
-        <a>
-            <span class="badge">{{comida.id}}</span> {{comida.name}}
-        </a>
-    </li>
+  <li *ngFor="let menu of menus">
+    <a>
+      <span class="badge">{{menu.idMenu}}</span> {{menu.nombreMenu}}
+    </a>
+  </li>
 </ul>
 
 <nav>
-    <a routerLink="/carrito">Pagar</a>
+  <a routerLink="/carrito">Pagar</a>
 </nav>

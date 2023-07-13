@@ -37,8 +37,8 @@ export class DashboardComponent implements OnInit {
       .subscribe(comidas => this.comidas = comidas);
   }
 
-  agregarAlCarrito(comida: Hero): void {
-    this.utilService.agregarComidaCarrito(comida);
+  agregarAlCarrito(menu: Menu): void {
+    this.utilService.agregarComidaCarrito(menu);
     alert('Agregado al carrito!');
   }
 

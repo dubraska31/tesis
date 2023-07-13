@@ -9,6 +9,7 @@ import {
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { UtilService } from '../util-service';
+import { Menu } from '../menu';
 
 @Component({
   selector: 'app-hero-search',
@@ -16,7 +17,7 @@ import { UtilService } from '../util-service';
   styleUrls: ['./hero-search.component.css']
 })
 export class HeroSearchComponent implements OnInit {
-  comidas$!: Observable<Hero[]>;
+  menus$!: Observable<Menu[]>;
   private searchTerms = new Subject<string>();
 
   constructor(
@@ -25,16 +26,16 @@ export class HeroSearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.comidas$ = this.searchTerms.pipe(
-      // wait 300ms after each keystroke before considering the term
-      debounceTime(300),
+    // this.menus$ = this.searchTerms.pipe(
+    //   // wait 300ms after each keystroke before considering the term
+    //   debounceTime(300),
 
-      // ignore new term if same as previous term
-      distinctUntilChanged(),
+    //   // ignore new term if same as previous term
+    //   distinctUntilChanged(),
 
-      // switch to new search observable each time the term changes
-      switchMap((term: string) => this.heroService.searchHeroes(term)),
-    );
+    //   // switch to new search observable each time the term changes
+    //   switchMap((term: string) => this.heroService.searchHeroes(term)),
+    // );
   }
 
   // Push a search term into the observable stream.
@@ -42,8 +43,8 @@ export class HeroSearchComponent implements OnInit {
     this.searchTerms.next(term);
   }
 
-  agregarAlCarrito(comida: Hero): void {
-    this.utilService.agregarComidaCarrito(comida);
+  agregarAlCarrito(menu: Menu): void {
+    this.utilService.agregarComidaCarrito(menu);
     alert('Agregado al carrito!');
   }
 
