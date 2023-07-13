@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Hero } from '../hero';
-import { UtilService } from '../util-service';
+import { Router } from '@angular/router';
 import { Menu } from '../menu';
+import { UtilService } from '../util-service';
 
 @Component({
   selector: 'app-carrito',
@@ -13,7 +13,8 @@ export class CarritoComponent {
   menus: Menu[] = [];
 
   constructor(
-    private utilService: UtilService) {
+    private utilService: UtilService,
+    private router: Router) {
   }
 
   ngOnInit(): void {
@@ -22,6 +23,11 @@ export class CarritoComponent {
 
   getComidas(): void {
     this.menus = this.utilService.getComidasCarrito();
+  }
+
+  pagar(): void {
+    this.utilService.limpiarCarrito();
+    this.router.navigate(['/pago']);
   }
 
 }

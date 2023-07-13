@@ -13,5 +13,5 @@
 </ul>
 
 <nav>
-  <a routerLink="/pago">Pagar</a>
+  <button [disabled]="menus.length <= 0" (click)="pagar()">Pagar</button>
 </nav>

@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { Hero } from "./hero";
 import { Menu } from "./menu";
 
 @Injectable({ providedIn: 'root' })
@@ -21,5 +20,9 @@ export class UtilService {
 
   public agregarComidaCarrito(menu: Menu): void {
     this.comidasCarrito.push(menu);
+  }
+
+  public limpiarCarrito(): void {
+    this.comidasCarrito = [];
   }
 }
