@@ -23,7 +23,7 @@
 
 <div class="heroes-menu margenTop30px">
   <a *ngFor="let menu of menus" (click)="agregarAlCarrito(menu)">
-    {{ menu.nombreMenu }}
+    {{ menu.nombreMenu }} ${{ menu.precio }}
     <br />
     <ng-container *ngIf="menu.imagen_menu === null">
       <img

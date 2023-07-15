@@ -9,16 +9,17 @@ import { UtilService } from '../util-service';
   styleUrls: ['./carrito.component.css']
 })
 export class CarritoComponent {
-
   menus: Menu[] = [];
+  totalPrecio: number = 0;
 
   constructor(
     private utilService: UtilService,
-    private router: Router) {
-  }
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getComidas();
+    this.calculateTotalPrecio();
   }
 
   getComidas(): void {
@@ -30,4 +31,7 @@ export class CarritoComponent {
     this.router.navigate(['/pago']);
   }
 
+  calculateTotalPrecio(): void {
+    this.totalPrecio = this.menus.reduce((total, menu) => total + menu.precio, 0);
+  }
 }

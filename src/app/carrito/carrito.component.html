@@ -7,10 +7,12 @@
 <ul class="heroes">
   <li *ngFor="let menu of menus">
     <a>
-      <span class="badge">{{menu.idMenu}}</span> {{menu.nombreMenu}}
+      <span class="badge">${{menu.precio}}</span> {{menu.nombreMenu}}
     </a>
   </li>
 </ul>
+
+<p>Total Precio: {{ totalPrecio }}</p>
 
 <nav>
   <button [disabled]="menus.length <= 0" (click)="pagar()">Pagar</button>
