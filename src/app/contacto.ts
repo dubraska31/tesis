@@ -1,21 +1,13 @@
-export interface Contacto {
-    idContacto: number,
-    nombre: string,
-    apellido: string,
-    email: string,
-    telefono: string,
-    direccion: string,
-    usuario: Usuario;
-}
+import { Usuario } from "./usuario";
 
-export interface Usuario {
-    idUsuario: number;
-    username: string;
-    password: string;
-    roles: string[];
-    enabled: boolean;
-    authorities: string[];
-    accountNonLocked: boolean;
-    accountNonExpired: boolean;
-    credentialsNonExpired: boolean;
+export class Contacto {
+
+  idContacto: number;
+  nombre: string;
+  apellido: string;
+  email: string;
+  telefono: string;
+  direccion: string;
+  usuario: Usuario;
+
 }

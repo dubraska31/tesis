@@ -10,15 +10,15 @@ import { Contacto } from '../contacto';
 export class ContactosComponent {
   contactosList: Contacto[] = [];
 
-  constructor(private rocketDeliveryService: RocketDeliveryService) {}
+  constructor(private rocketDeliveryService: RocketDeliveryService) { }
 
   ngOnInit(): void {
     this.getContactos();
   }
 
   getContactos(): void {
-    this.rocketDeliveryService
-      .getContactos()
+    this.rocketDeliveryService.getContactos()
       .subscribe((contactos) => (this.contactosList = contactos));
   }
+
 }
