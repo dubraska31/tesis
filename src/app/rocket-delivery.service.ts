@@ -6,6 +6,7 @@ import { LoginResponse } from './login-response';
 import { Menu } from './menu';
 import { Pedido } from './pedido';
 import { UtilService } from './util-service';
+import { Venta } from './venta';
 
 @Injectable({ providedIn: 'root' })
 export class RocketDeliveryService {
@@ -73,6 +74,19 @@ export class RocketDeliveryService {
         Authorization: 'Bearer ' + this.utilService.getToken(),
       }),
     });
+  }
+
+  // listar ventas
+  getVentas(): Observable<Venta[]> {
+    return this.http.get<Venta[]>(
+      this.rocketDeliveryUrl + 'api/listar-pedidos',
+      {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + this.utilService.getToken(),
+        }),
+      }
+    );
   }
 
 }

@@ -1,0 +1,24 @@
+<nav>
+  <a routerLink="/admin-home">Admin Home</a>
+</nav>
+<br />
+<h2>Ventas</h2>
+<br>
+<ng-container *ngFor="let venta of ventas">
+
+  <div>Pedido: {{venta.idPedido}}</div>
+  <div>Nombre Cliente: {{venta.contacto.nombre}}</div>
+  <table>
+    <tr>
+      <th>Plato</th>
+      <th>Precio</th>
+    </tr>
+    <ng-container *ngFor="let menu of venta.menus">
+      <tr>
+        <td>{{menu.nombreMenu}}</td>
+        <td>{{menu.precio}}</td>
+      </tr>
+    </ng-container>
+  </table>
+  <br>
+</ng-container>
