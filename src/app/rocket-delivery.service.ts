@@ -8,6 +8,8 @@ import { Pedido } from './pedido';
 import { UtilService } from './util-service';
 import { Venta } from './venta';
 
+import { Registrar } from './registrar';
+
 @Injectable({ providedIn: 'root' })
 export class RocketDeliveryService {
 
@@ -68,6 +70,22 @@ export class RocketDeliveryService {
       }
     );
   }
+
+  // registrar usuario
+  registrar(username: string, password: string): Observable<any> {
+    const body = new HttpParams()
+      .set('username', username)
+      .set('password', password);
+  
+    return this.http.post<any>(
+      this.rocketDeliveryUrl + 'api/guardar-usuario',
+      body.toString(),
+      {
+        
+      }
+    );
+  }
+  
 
   // agregar menu
   agregarMenu(menu: Menu): Observable<Menu> {

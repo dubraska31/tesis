@@ -13,6 +13,8 @@ import { PagoComponent } from './pago/pago.component';
 import { VentasComponent } from './ventas/ventas.component';
 import { CrearClienteComponent } from './crear-cliente/crear-cliente.component';
 
+import { GenerarUsuarioComponent } from './generar-usuario/generar-usuario.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -26,7 +28,8 @@ const routes: Routes = [
   { path: 'agregar-menu', component: AgregarMenuComponent },
   { path: 'pago', component: PagoComponent },
   { path: 'ventas', component: VentasComponent },
-  { path: 'crear-cliente', component: CrearClienteComponent }
+  { path: 'crear-cliente', component: CrearClienteComponent },
+  { path: 'generar-usuario', component: GenerarUsuarioComponent },
 ];
 
 @NgModule({

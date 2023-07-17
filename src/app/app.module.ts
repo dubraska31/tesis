@@ -20,6 +20,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { PagoComponent } from './pago/pago.component';
 import { VentasComponent } from './ventas/ventas.component';
 import { CrearClienteComponent } from './crear-cliente/crear-cliente.component';
+import { GenerarUsuarioComponent } from './generar-usuario/generar-usuario.component';
 
 @NgModule({
   imports: [
@@ -49,7 +50,8 @@ import { CrearClienteComponent } from './crear-cliente/crear-cliente.component';
     MenuComponent,
     PagoComponent,
     VentasComponent,
-    CrearClienteComponent
+    CrearClienteComponent,
+    GenerarUsuarioComponent
   ],
   bootstrap: [AppComponent]
 })
