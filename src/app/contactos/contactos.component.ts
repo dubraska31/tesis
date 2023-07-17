@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { RocketDeliveryService } from '../rocket-delivery.service';
 import { Contacto } from '../contacto';
+import { RocketDeliveryService } from '../rocket-delivery.service';
 
 @Component({
   selector: 'app-contactos',
@@ -10,7 +10,9 @@ import { Contacto } from '../contacto';
 export class ContactosComponent {
   contactosList: Contacto[] = [];
 
-  constructor(private rocketDeliveryService: RocketDeliveryService) { }
+  constructor(
+    private rocketDeliveryService: RocketDeliveryService
+  ) { }
 
   ngOnInit(): void {
     this.getContactos();

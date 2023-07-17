@@ -1,11 +1,11 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Contacto } from './contacto';
 import { LoginResponse } from './login-response';
 import { Menu } from './menu';
-import { Contacto } from './contacto';
-import { UtilService } from './util-service';
 import { Pedido } from './pedido';
+import { UtilService } from './util-service';
 
 @Injectable({ providedIn: 'root' })
 export class RocketDeliveryService {
@@ -66,8 +66,8 @@ export class RocketDeliveryService {
   }
 
   // crear pedido
-  crearPedido(pedido: Pedido): Observable<Menu> {
-    return this.http.post<Menu>(this.rocketDeliveryUrl + 'api/crear-pedido', pedido, {
+  crearPedido(pedido: Pedido): Observable<Pedido> {
+    return this.http.post<Pedido>(this.rocketDeliveryUrl + 'api/crear-pedido', pedido, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + this.utilService.getToken(),
