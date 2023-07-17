@@ -11,6 +11,7 @@ import { AgregarMenuComponent } from './agregar-menu/agregar-menu.component';
 import { MenuComponent } from './menu/menu.component';
 import { PagoComponent } from './pago/pago.component';
 import { VentasComponent } from './ventas/ventas.component';
+import { CrearClienteComponent } from './crear-cliente/crear-cliente.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'contactos', component: ContactosComponent },
   { path: 'agregar-menu', component: AgregarMenuComponent },
   { path: 'pago', component: PagoComponent },
-  { path: 'ventas', component: VentasComponent }
+  { path: 'ventas', component: VentasComponent },
+  { path: 'crear-cliente', component: CrearClienteComponent }
 ];
 
 @NgModule({

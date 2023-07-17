@@ -15,37 +15,9 @@ export class RocketDeliveryService {
 
   constructor(private http: HttpClient, private utilService: UtilService) { }
 
-  // login
-  login(username: string, password: string): Observable<LoginResponse> {
-    const body = new HttpParams()
-      .set('username', username)
-      .set('password', password);
-
-    return this.http.post<LoginResponse>(
-      this.rocketDeliveryUrl + 'login',
-      body.toString(),
-      {
-        headers: new HttpHeaders().set(
-          'Content-Type',
-          'application/x-www-form-urlencoded'
-        ),
-      }
-    );
-  }
-
   // listar menu
   getMenus(): Observable<Menu[]> {
     return this.http.get<Menu[]>(this.rocketDeliveryUrl + 'api/listar-menus', {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + this.utilService.getToken(),
-      }),
-    });
-  }
-
-  // agregar menu
-  agregarMenu(menu: Menu): Observable<Menu> {
-    return this.http.post<Menu>(this.rocketDeliveryUrl + 'api/crear-menu', menu, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + this.utilService.getToken(),
@@ -66,16 +38,6 @@ export class RocketDeliveryService {
     );
   }
 
-  // crear pedido
-  crearPedido(pedido: Pedido): Observable<Pedido> {
-    return this.http.post<Pedido>(this.rocketDeliveryUrl + 'api/crear-pedido', pedido, {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + this.utilService.getToken(),
-      }),
-    });
-  }
-
   // listar ventas
   getVentas(): Observable<Venta[]> {
     return this.http.get<Venta[]>(
@@ -87,6 +49,54 @@ export class RocketDeliveryService {
         }),
       }
     );
+  }
+
+  // login
+  login(username: string, password: string): Observable<LoginResponse> {
+    const body = new HttpParams()
+      .set('username', username)
+      .set('password', password);
+
+    return this.http.post<LoginResponse>(
+      this.rocketDeliveryUrl + 'login',
+      body.toString(),
+      {
+        headers: new HttpHeaders().set(
+          'Content-Type',
+          'application/x-www-form-urlencoded'
+        ),
+      }
+    );
+  }
+
+  // agregar menu
+  agregarMenu(menu: Menu): Observable<Menu> {
+    return this.http.post<Menu>(this.rocketDeliveryUrl + 'api/crear-menu', menu, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.utilService.getToken(),
+      }),
+    });
+  }
+
+  // crear pedido
+  crearPedido(pedido: Pedido): Observable<Pedido> {
+    return this.http.post<Pedido>(this.rocketDeliveryUrl + 'api/crear-pedido', pedido, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.utilService.getToken(),
+      }),
+    });
+  }
+
+  // crear cliente
+  crearCliente(contacto: Contacto): Observable<Contacto> {
+    return this.http.post<Contacto>(this.rocketDeliveryUrl + 'api/crear-contacto', contacto, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.utilService.getToken(),
+      }),
+    });
   }
 
 }

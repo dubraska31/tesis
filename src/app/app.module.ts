@@ -19,6 +19,7 @@ import { MenuComponent } from './menu/menu.component';
 import { MessagesComponent } from './messages/messages.component';
 import { PagoComponent } from './pago/pago.component';
 import { VentasComponent } from './ventas/ventas.component';
+import { CrearClienteComponent } from './crear-cliente/crear-cliente.component';
 
 @NgModule({
   imports: [
@@ -47,7 +48,8 @@ import { VentasComponent } from './ventas/ventas.component';
     AgregarMenuComponent,
     MenuComponent,
     PagoComponent,
-    VentasComponent
+    VentasComponent,
+    CrearClienteComponent
   ],
   bootstrap: [AppComponent]
 })

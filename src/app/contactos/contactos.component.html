@@ -6,6 +6,12 @@
 
 <h2>Cartera de clientes</h2>
 
+<div>
+  <button type="button" class="add-button" routerLink="/crear-cliente">
+    Crear cliente
+  </button>
+</div>
+
 <ul class="contact-list">
   <li class="contact-item" *ngFor="let contacto of contactosList">
     <strong>ID:</strong> {{ contacto.idContacto }}<br />
