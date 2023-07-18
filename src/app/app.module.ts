@@ -22,6 +22,7 @@ import { VentasComponent } from './ventas/ventas.component';
 import { CrearClienteComponent } from './crear-cliente/crear-cliente.component';
 import { GenerarUsuarioComponent } from './generar-usuario/generar-usuario.component';
 import { BienvenidaComponent } from './bienvenida/bienvenida.component';
+import { IngredientesComponent } from './ingredientes/ingredientes.component';
 
 @NgModule({
   imports: [
@@ -53,7 +54,8 @@ import { BienvenidaComponent } from './bienvenida/bienvenida.component';
     VentasComponent,
     CrearClienteComponent,
     GenerarUsuarioComponent,
-    BienvenidaComponent
+    BienvenidaComponent,
+    IngredientesComponent
   ],
   bootstrap: [AppComponent]
 })
