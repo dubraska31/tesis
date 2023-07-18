@@ -1,3 +1,7 @@
+<button type="button" class="add-button" routerLink="/bienvenida">
+    Volver
+</button>
+
 <div class="col-md-12">
     <div class="card card-container">
         <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
@@ -21,7 +25,7 @@
                 <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
                     <div *ngIf="password.errors['required']">La clave es requerida</div>
                     <div *ngIf="password.errors['minlength']">
-                        Clave debe ser al menos 4 caracteres
+                        Clave debe ser al menos 3 caracteres
                     </div>
                 </div>
             </div>
@@ -42,8 +46,6 @@
         </div>
     </div>
 
-    <nav>
-        <a routerLink="/generar-usuario">registrar</a>
-      </nav>
+    
 
 </div>

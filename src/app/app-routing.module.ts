@@ -12,12 +12,12 @@ import { MenuComponent } from './menu/menu.component';
 import { PagoComponent } from './pago/pago.component';
 import { VentasComponent } from './ventas/ventas.component';
 import { CrearClienteComponent } from './crear-cliente/crear-cliente.component';
-
 import { GenerarUsuarioComponent } from './generar-usuario/generar-usuario.component';
+import { BienvenidaComponent } from './bienvenida/bienvenida.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/bienvenida', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: HeroDetailComponent },
@@ -30,6 +30,7 @@ const routes: Routes = [
   { path: 'ventas', component: VentasComponent },
   { path: 'crear-cliente', component: CrearClienteComponent },
   { path: 'generar-usuario', component: GenerarUsuarioComponent },
+  { path: 'bienvenida', component: BienvenidaComponent },
 ];
 
 @NgModule({

@@ -21,6 +21,7 @@ import { PagoComponent } from './pago/pago.component';
 import { VentasComponent } from './ventas/ventas.component';
 import { CrearClienteComponent } from './crear-cliente/crear-cliente.component';
 import { GenerarUsuarioComponent } from './generar-usuario/generar-usuario.component';
+import { BienvenidaComponent } from './bienvenida/bienvenida.component';
 
 @NgModule({
   imports: [
@@ -51,7 +52,8 @@ import { GenerarUsuarioComponent } from './generar-usuario/generar-usuario.compo
     PagoComponent,
     VentasComponent,
     CrearClienteComponent,
-    GenerarUsuarioComponent
+    GenerarUsuarioComponent,
+    BienvenidaComponent
   ],
   bootstrap: [AppComponent]
 })
