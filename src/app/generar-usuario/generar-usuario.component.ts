@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Registrar } from '../registrar';
 import { RocketDeliveryService } from '../rocket-delivery.service';
 import { UtilService } from '../util-service';
-import { Registrar } from '../registrar';
-import { Observable } from 'rxjs';
-
 
 @Component({
   selector: 'app-generar-usuario',
@@ -21,7 +19,6 @@ export class GenerarUsuarioComponent {
   ) {
     this.registrarCliente = new Registrar(); // Inicializar el objeto registrarCliente
   }
-  
 
   ngOnInit(): void {
     this.utilService.limpiarCarrito();
@@ -30,18 +27,8 @@ export class GenerarUsuarioComponent {
   crearCliente(): void {
     console.log("this.registrarCliente.username: " + this.registrarCliente.username);
     console.log("this.registrarCliente.password: " + this.registrarCliente.password);
-  
-    this.rocketDeliveryService.registrar(this.registrarCliente.username, this.registrarCliente.password)
-      .subscribe(
-        () => {
-          // Manejar la respuesta exitosa si es necesario
-        },
-        (error: any) => {
-          // Manejar el error si es necesario
-        }
-      );
-  }
-  
-  
-}
 
+    this.rocketDeliveryService.registrar(this.registrarCliente).subscribe();
+  }
+
+}

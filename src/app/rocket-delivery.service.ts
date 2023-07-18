@@ -71,22 +71,6 @@ export class RocketDeliveryService {
     );
   }
 
-  // registrar usuario
-  registrar(username: string, password: string): Observable<any> {
-    const body = new HttpParams()
-      .set('username', username)
-      .set('password', password);
-  
-    return this.http.post<any>(
-      this.rocketDeliveryUrl + 'api/guardar-usuario',
-      body.toString(),
-      {
-        
-      }
-    );
-  }
-  
-
   // agregar menu
   agregarMenu(menu: Menu): Observable<Menu> {
     return this.http.post<Menu>(this.rocketDeliveryUrl + 'api/crear-menu', menu, {
@@ -113,6 +97,15 @@ export class RocketDeliveryService {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + this.utilService.getToken(),
+      }),
+    });
+  }
+
+  // registrar usuario
+  registrar(registrarCliente: Registrar): Observable<any> {
+    return this.http.post<any>(this.rocketDeliveryUrl + 'usuarios/guardar-usuario', registrarCliente, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
       }),
     });
   }
