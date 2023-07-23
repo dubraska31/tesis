@@ -21,8 +21,13 @@ export class CrearIngredienteComponent {
   }
 
   agregarIngrediente(): void {
-
-    this.rocketDeliveryService.crearIngrediente(this.ingrediente).subscribe();
-    this.router.navigate(['/ingredientes']);
+    this.rocketDeliveryService.crearIngrediente(this.ingrediente).subscribe({
+      next: () => {
+        this.router.navigate(['/ingredientes']);
+      },
+      error: (e) => console.error('error: ' + e),
+      complete: () => console.info('Ingrediente creado')
+    });
   }
+
 }
