@@ -111,9 +111,26 @@ export class RocketDeliveryService {
     });
   }
 
-  // venta establecer estado a EN PROGRESO
   establecerEnProgreso(venta: Venta): Observable<any> {
     return this.http.post<any>(this.rocketDeliveryUrl + 'api/en-progreso', venta, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.utilService.getToken(),
+      }),
+    });
+  }
+
+  establecerEntregado(venta: Venta): Observable<any> {
+    return this.http.post<any>(this.rocketDeliveryUrl + 'api/entregado', venta, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.utilService.getToken(),
+      }),
+    });
+  }
+
+  establecerCancelado(venta: Venta): Observable<any> {
+    return this.http.post<any>(this.rocketDeliveryUrl + 'api/cancelado', venta, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + this.utilService.getToken(),

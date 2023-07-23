@@ -40,6 +40,14 @@ export class VentasComponent {
         break;
       }
 
+      case "cancelado": {
+        this.rocketDeliveryService.establecerCancelado(venta)
+          .subscribe(data => {
+            this.ventas = data;
+            this.getVentas();
+          })
+        break;
+      }
     }
   }
 
