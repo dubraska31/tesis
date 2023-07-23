@@ -11,7 +11,7 @@ export class AdminHomeComponent {
   constructor(private router: Router) { }
 
   logout(): void {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/bienvenida']);
   }
 
 }
