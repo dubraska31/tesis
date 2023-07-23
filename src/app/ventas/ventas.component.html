@@ -8,7 +8,16 @@
 
   <div>Pedido: {{venta.idPedido}}</div>
   <div>Nombre Cliente: {{venta.contacto.nombre}}</div>
-  <div>Estado: {{venta.estado.nombreEstado}}</div>
+  <div>
+    Estado: {{venta.estado.nombreEstado}}
+
+    <select [ngModel]="estadoSeleccionado" (ngModelChange)="onChange($event)" name="language" id="language">
+      <option value="enProgreso">En Progreso</option>
+      <option value="entregado">Entregado</option>
+      <option value="cancelado">Cancelado</option>
+      <option value="listoParaEntrega">Listo para entrega</option>
+    </select>
+  </div>
 
   <table>
     <tr>
