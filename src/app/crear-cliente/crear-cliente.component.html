@@ -27,12 +27,17 @@
   </tr>
   <tr>
     <td><label for="new-hero">usuario ID: </label></td>
-    <td><input type="number" [(ngModel)]="idUsuario" /></td>
+    <td>
+      <select [(ngModel)]="idUsuario">
+        <option [ngValue]="" disabled>Seleccionar usuario</option>
+        <option *ngFor="let u of usuarios" [ngValue]="u.idUsuario">{{u.username}}</option>
+      </select>
+    </td>
   </tr>
 </table>
 
 <div>
-  <button type="button" class="add-button" (click)="agregarCliente()" routerLink="/contactos">
+  <button type="button" class="add-button" (click)="agregarCliente()">
     Agregar Cliente
   </button>
 </div>

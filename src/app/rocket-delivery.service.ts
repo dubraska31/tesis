@@ -10,6 +10,7 @@ import { Venta } from './venta';
 import { Ingrediente } from './ingrediente';
 
 import { Registrar } from './registrar';
+import { Usuario } from './usuario';
 
 @Injectable({ providedIn: 'root' })
 export class RocketDeliveryService {
@@ -54,6 +55,14 @@ export class RocketDeliveryService {
     );
   }
 
+  getUsuariosSinContacto(): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(this.rocketDeliveryUrl + 'usuarios/listar-usuarios-sin-contacto', {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+    });
+  }
+
   // login
   login(username: string, password: string): Observable<LoginResponse> {
     const body = new HttpParams()
@@ -70,6 +79,15 @@ export class RocketDeliveryService {
         ),
       }
     );
+  }
+
+  // registrar usuario
+  registrar(registrarCliente: Registrar): Observable<any> {
+    return this.http.post<any>(this.rocketDeliveryUrl + 'usuarios/guardar-usuario', registrarCliente, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+    });
   }
 
   // agregar menu
@@ -98,15 +116,6 @@ export class RocketDeliveryService {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + this.utilService.getToken(),
-      }),
-    });
-  }
-
-  // registrar usuario
-  registrar(registrarCliente: Registrar): Observable<any> {
-    return this.http.post<any>(this.rocketDeliveryUrl + 'usuarios/guardar-usuario', registrarCliente, {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
       }),
     });
   }
