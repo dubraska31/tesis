@@ -1,6 +1,5 @@
 
 export class Ingrediente {
-
     idIngredienteStock: number
     cantidadStock: string
     nombreIngrediente: string

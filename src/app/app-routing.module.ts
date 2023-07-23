@@ -16,7 +16,6 @@ import { GenerarUsuarioComponent } from './generar-usuario/generar-usuario.compo
 import { BienvenidaComponent } from './bienvenida/bienvenida.component';
 import { IngredientesComponent } from './ingredientes/ingredientes.component';
 
-
 const routes: Routes = [
   { path: '', redirectTo: '/bienvenida', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },

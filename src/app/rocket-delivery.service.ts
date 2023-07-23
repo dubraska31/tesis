@@ -101,7 +101,7 @@ export class RocketDeliveryService {
       }),
     });
   }
-
+  
   // registrar usuario
   registrar(registrarCliente: Registrar): Observable<any> {
     return this.http.post<any>(this.rocketDeliveryUrl + 'usuarios/guardar-usuario', registrarCliente, {
