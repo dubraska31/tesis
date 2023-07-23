@@ -25,9 +25,22 @@ export class VentasComponent {
       .subscribe((ventas) => (this.ventas = ventas));
   }
 
-  onChange(estado: string) {
+  onChange(estado: string, venta: Venta) {
     console.log(estado);
-    this.estadoSeleccionado = estado;
+    console.log(venta.idPedido);
+    venta.contacto.usuario.authorities = [];
+
+    switch (estado) {
+      case "enProgreso": {
+        this.rocketDeliveryService.establecerEnProgreso(venta)
+          .subscribe(data => {
+            this.ventas = data;
+            this.getVentas();
+          })
+        break;
+      }
+
+    }
   }
 
 }

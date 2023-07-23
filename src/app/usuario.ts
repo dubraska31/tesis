@@ -1,3 +1,5 @@
+import { Authority } from "./authority";
+
 export class Usuario {
 
   idUsuario: number;
@@ -5,7 +7,7 @@ export class Usuario {
   password: string;
   roles: string[];
   enabled: boolean;
-  authorities: string[];
+  authorities: Authority[];
   accountNonLocked: boolean;
   accountNonExpired: boolean;
   credentialsNonExpired: boolean;

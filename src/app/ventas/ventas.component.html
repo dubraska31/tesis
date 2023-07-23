@@ -5,13 +5,12 @@
 <h2>Ventas</h2>
 <br>
 <ng-container *ngFor="let venta of ventas">
-
   <div>Pedido: {{venta.idPedido}}</div>
   <div>Nombre Cliente: {{venta.contacto.nombre}}</div>
   <div>
     Estado: {{venta.estado.nombreEstado}}
 
-    <select [ngModel]="estadoSeleccionado" (ngModelChange)="onChange($event)" name="language" id="language">
+    <select [ngModel]="estadoSeleccionado" (ngModelChange)="onChange($event, venta)">
       <option value="enProgreso">En Progreso</option>
       <option value="entregado">Entregado</option>
       <option value="cancelado">Cancelado</option>

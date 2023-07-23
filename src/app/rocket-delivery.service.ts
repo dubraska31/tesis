@@ -101,7 +101,7 @@ export class RocketDeliveryService {
       }),
     });
   }
-  
+
   // registrar usuario
   registrar(registrarCliente: Registrar): Observable<any> {
     return this.http.post<any>(this.rocketDeliveryUrl + 'usuarios/guardar-usuario', registrarCliente, {
@@ -111,6 +111,15 @@ export class RocketDeliveryService {
     });
   }
 
+  // venta establecer estado a EN PROGRESO
+  establecerEnProgreso(venta: Venta): Observable<any> {
+    return this.http.post<any>(this.rocketDeliveryUrl + 'api/en-progreso', venta, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.utilService.getToken(),
+      }),
+    });
+  }
 
   //listar ingredientes en stock
   getIngredientes(): Observable<Ingrediente[]> {
