@@ -1,0 +1,29 @@
+<nav>
+    <a routerLink="/ingredientes">Volver</a>
+  </nav>
+  
+  <h2 class="margenTop30px">Agregar ingrediente</h2>
+  
+  <table>
+    <tr>
+      <td><label for="new-hero">Nombre: </label></td>
+      <td><input [(ngModel)]="ingrediente.nombreIngrediente" /></td>
+    </tr>
+    <tr>
+      <td><label for="new-hero">Descripcion: </label></td>
+      <td><input [(ngModel)]="ingrediente.descripcionIngrediente" /></td>
+    </tr>
+    <tr>
+      <td><label for="new-hero">Cantidad: </label></td>
+      <td><input type="number"[(ngModel)]="ingrediente.cantidadStock" /></td>
+    </tr>
+    
+ 
+  </table>
+  
+  <div>
+    <button type="button" class="add-button" (click)="agregarIngrediente()" routerLink="/ingrediente">
+      Agregar Ingrediente
+    </button>
+  </div>
+  

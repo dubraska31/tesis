@@ -15,6 +15,7 @@ import { CrearClienteComponent } from './crear-cliente/crear-cliente.component';
 import { GenerarUsuarioComponent } from './generar-usuario/generar-usuario.component';
 import { BienvenidaComponent } from './bienvenida/bienvenida.component';
 import { IngredientesComponent } from './ingredientes/ingredientes.component';
+import { CrearIngredienteComponent } from './crear-ingrediente/crear-ingrediente.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/bienvenida', pathMatch: 'full' },
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'generar-usuario', component: GenerarUsuarioComponent },
   { path: 'bienvenida', component: BienvenidaComponent },
   { path: 'ingredientes', component: IngredientesComponent },
+  { path: 'crear-ingrediente', component: CrearIngredienteComponent },
 ];
 
 @NgModule({

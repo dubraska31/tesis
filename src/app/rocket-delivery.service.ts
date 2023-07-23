@@ -156,5 +156,14 @@ export class RocketDeliveryService {
       }),
     });
   }
+ //AGREGAR INGREDIENTE
+ crearIngrediente(ingrediente: Ingrediente): Observable<Ingrediente> {
+  return this.http.post<Ingrediente>(this.rocketDeliveryUrl + 'api/crear-ingrediente', ingrediente, {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + this.utilService.getToken(),
+    }),
+  });
+}
 
 }
