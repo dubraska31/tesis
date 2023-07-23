@@ -2,12 +2,12 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Contacto } from './contacto';
+import { Ingrediente } from './ingrediente';
 import { LoginResponse } from './login-response';
 import { Menu } from './menu';
 import { Pedido } from './pedido';
 import { UtilService } from './util-service';
 import { Venta } from './venta';
-import { Ingrediente } from './ingrediente';
 
 import { Registrar } from './registrar';
 import { Usuario } from './usuario';
@@ -83,7 +83,7 @@ export class RocketDeliveryService {
 
   // listar menu
   buscarContactoByUsername(userName: string): Observable<Contacto> {
-    return this.http.get<Contacto>(this.rocketDeliveryUrl + 'api/buscar-contacto/username/'+userName, {
+    return this.http.get<Contacto>(this.rocketDeliveryUrl + 'api/buscar-contacto/username/' + userName, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + this.utilService.getToken(),
@@ -139,6 +139,24 @@ export class RocketDeliveryService {
     });
   }
 
+  listoParaEntrega(venta: Venta): Observable<any> {
+    return this.http.post<any>(this.rocketDeliveryUrl + 'api/listo-para-entrega', venta, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.utilService.getToken(),
+      }),
+    });
+  }
+
+  entregado(venta: Venta): Observable<any> {
+    return this.http.post<any>(this.rocketDeliveryUrl + 'api/entregado', venta, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.utilService.getToken(),
+      }),
+    });
+  }
+
   establecerEntregado(venta: Venta): Observable<any> {
     return this.http.post<any>(this.rocketDeliveryUrl + 'api/entregado', venta, {
       headers: new HttpHeaders({
@@ -166,14 +184,14 @@ export class RocketDeliveryService {
       }),
     });
   }
- //AGREGAR INGREDIENTE
- crearIngrediente(ingrediente: Ingrediente): Observable<Ingrediente> {
-  return this.http.post<Ingrediente>(this.rocketDeliveryUrl + 'api/crear-ingrediente', ingrediente, {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: 'Bearer ' + this.utilService.getToken(),
-    }),
-  });
-}
+  //AGREGAR INGREDIENTE
+  crearIngrediente(ingrediente: Ingrediente): Observable<Ingrediente> {
+    return this.http.post<Ingrediente>(this.rocketDeliveryUrl + 'api/crear-ingrediente', ingrediente, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.utilService.getToken(),
+      }),
+    });
+  }
 
 }

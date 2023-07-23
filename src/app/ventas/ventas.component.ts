@@ -26,13 +26,29 @@ export class VentasComponent {
   }
 
   onChange(estado: string, venta: Venta) {
-    console.log(estado);
-    console.log(venta.idPedido);
     venta.contacto.usuario.authorities = [];
 
     switch (estado) {
       case "enProgreso": {
         this.rocketDeliveryService.establecerEnProgreso(venta)
+          .subscribe(data => {
+            this.ventas = data;
+            this.getVentas();
+          })
+        break;
+      }
+
+      case "listoParaEntrega": {
+        this.rocketDeliveryService.listoParaEntrega(venta)
+          .subscribe(data => {
+            this.ventas = data;
+            this.getVentas();
+          })
+        break;
+      }
+
+      case "entregado": {
+        this.rocketDeliveryService.entregado(venta)
           .subscribe(data => {
             this.ventas = data;
             this.getVentas();
