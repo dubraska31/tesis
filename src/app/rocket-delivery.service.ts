@@ -81,6 +81,16 @@ export class RocketDeliveryService {
     );
   }
 
+  // listar menu
+  buscarContactoByUsername(userName: string): Observable<Contacto> {
+    return this.http.get<Contacto>(this.rocketDeliveryUrl + 'api/buscar-contacto/username/'+userName, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.utilService.getToken(),
+      }),
+    });
+  }
+
   // registrar usuario
   registrar(registrarCliente: Registrar): Observable<any> {
     return this.http.post<any>(this.rocketDeliveryUrl + 'usuarios/guardar-usuario', registrarCliente, {

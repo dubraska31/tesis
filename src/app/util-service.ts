@@ -14,6 +14,14 @@ export class UtilService {
     localStorage.setItem('token', value);
   }
 
+  public getIdContacto(): string | null {
+    return localStorage.getItem('IdContacto');
+  }
+
+  public setIdContacto(value: string) {
+    localStorage.setItem('IdContacto', value);
+  }
+
   public getComidasCarrito(): Menu[] {
     return this.comidasCarrito;
   }

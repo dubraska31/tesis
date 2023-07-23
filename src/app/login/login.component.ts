@@ -42,11 +42,16 @@ export class LoginComponent {
 
         this.utilService.setToken(this.loginResponse.token);
 
-        if (username === 'admin') {
-          this.router.navigate(['/admin-home']);
-        } else {
-          this.router.navigate(['/dashboard']);
-        }
+        this.rocketDeliveryService.buscarContactoByUsername(username)
+          .subscribe(data => {
+            this.utilService.setIdContacto(data.idContacto.toString());
+
+            if (username === 'admin') {
+              this.router.navigate(['/admin-home']);
+            } else {
+              this.router.navigate(['/dashboard']);
+            }
+          });
       }, error => {
         console.log('error: ' + error.message);
         this.isLoginFailed = true;

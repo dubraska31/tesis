@@ -32,7 +32,7 @@ export class CarritoComponent {
 
   pagar(): void {
     var contacto = new Contacto();
-    contacto.idContacto = 9;
+    contacto.idContacto = Number(this.utilService.getIdContacto());
 
     var pedido = new Pedido();
     pedido.menus = this.menus;
