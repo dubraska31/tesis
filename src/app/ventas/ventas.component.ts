@@ -10,6 +10,7 @@ import { Venta } from '../venta';
 export class VentasComponent {
 
   ventas: Venta[] = [];
+  estadoSeleccionado = '';
 
   constructor(
     private rocketDeliveryService: RocketDeliveryService
@@ -22,6 +23,11 @@ export class VentasComponent {
   getVentas(): void {
     this.rocketDeliveryService.getVentas()
       .subscribe((ventas) => (this.ventas = ventas));
+  }
+
+  onChange(estado: string) {
+    console.log(estado);
+    this.estadoSeleccionado = estado;
   }
 
 }
