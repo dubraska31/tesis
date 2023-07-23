@@ -18,6 +18,26 @@ export class RocketDeliveryService {
 
   constructor(private http: HttpClient, private utilService: UtilService) { }
 
+
+   // login
+  login(username: string, password: string): Observable<LoginResponse> {
+    const body = new HttpParams()
+      .set('username', username)
+      .set('password', password);
+
+    return this.http.post<LoginResponse>(
+      this.rocketDeliveryUrl + 'login',
+      body.toString(),
+      {
+        headers: new HttpHeaders().set(
+          'Content-Type',
+          'application/x-www-form-urlencoded'
+        ),
+      }
+    );
+  }
+
+
   // listar menu
   getMenus(): Observable<Menu[]> {
     return this.http.get<Menu[]>(this.rocketDeliveryUrl + 'api/listar-menus', {
@@ -54,23 +74,15 @@ export class RocketDeliveryService {
     );
   }
 
-  // login
-  login(username: string, password: string): Observable<LoginResponse> {
-    const body = new HttpParams()
-      .set('username', username)
-      .set('password', password);
-
-    return this.http.post<LoginResponse>(
-      this.rocketDeliveryUrl + 'login',
-      body.toString(),
-      {
-        headers: new HttpHeaders().set(
-          'Content-Type',
-          'application/x-www-form-urlencoded'
-        ),
-      }
-    );
-  }
+    //listar ingredientes en stock
+    getIngredientes(): Observable<Ingrediente[]> {
+      return this.http.get<Ingrediente[]>(this.rocketDeliveryUrl + 'api/listar-stock', {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + this.utilService.getToken(),
+        }),
+      });
+    }
 
   // agregar menu
   agregarMenu(menu: Menu): Observable<Menu> {
@@ -82,7 +94,7 @@ export class RocketDeliveryService {
     });
   }
 
-  // crear pedido
+  // agregar pedido
   crearPedido(pedido: Pedido): Observable<Pedido> {
     return this.http.post<Pedido>(this.rocketDeliveryUrl + 'api/crear-pedido', pedido, {
       headers: new HttpHeaders({
@@ -92,7 +104,7 @@ export class RocketDeliveryService {
     });
   }
 
-  // crear cliente
+  // agregar cliente
   crearCliente(contacto: Contacto): Observable<Contacto> {
     return this.http.post<Contacto>(this.rocketDeliveryUrl + 'api/crear-contacto', contacto, {
       headers: new HttpHeaders({
@@ -101,6 +113,17 @@ export class RocketDeliveryService {
       }),
     });
   }
+
+ //AGREGAR INGREDIENTE
+  crearIngrediente(ingrediente: Ingrediente): Observable<Ingrediente> {
+    return this.http.post<Ingrediente>(this.rocketDeliveryUrl + 'api/crear-ingrediente', ingrediente, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.utilService.getToken(),
+      }),
+    });
+  }
+
 
   // registrar usuario
   registrar(registrarCliente: Registrar): Observable<any> {
@@ -111,6 +134,7 @@ export class RocketDeliveryService {
     });
   }
 
+  //pedidos
   establecerEnProgreso(venta: Venta): Observable<any> {
     return this.http.post<any>(this.rocketDeliveryUrl + 'api/en-progreso', venta, {
       headers: new HttpHeaders({
@@ -119,7 +143,7 @@ export class RocketDeliveryService {
       }),
     });
   }
-
+//pedidos
   establecerEntregado(venta: Venta): Observable<any> {
     return this.http.post<any>(this.rocketDeliveryUrl + 'api/entregado', venta, {
       headers: new HttpHeaders({
@@ -128,7 +152,7 @@ export class RocketDeliveryService {
       }),
     });
   }
-
+  //pedidos
   establecerCancelado(venta: Venta): Observable<any> {
     return this.http.post<any>(this.rocketDeliveryUrl + 'api/cancelado', venta, {
       headers: new HttpHeaders({
@@ -138,14 +162,6 @@ export class RocketDeliveryService {
     });
   }
 
-  //listar ingredientes en stock
-  getIngredientes(): Observable<Ingrediente[]> {
-    return this.http.get<Ingrediente[]>(this.rocketDeliveryUrl + 'api/listar-stock', {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + this.utilService.getToken(),
-      }),
-    });
-  }
+
 
 }
