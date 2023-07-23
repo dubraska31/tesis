@@ -1,9 +1,9 @@
-import { Contacto } from "./contacto";
-import { Menu } from "./menu";
 
-export class ingrediente {
+export class Ingrediente {
 
-
-
-
+    idIngredienteStock: number
+    cantidadStock: string
+    nombreIngrediente: string
+    descripcionIngrediente : string
+    imagenIngrediente: string
 }

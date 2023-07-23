@@ -7,6 +7,7 @@ import { Menu } from './menu';
 import { Pedido } from './pedido';
 import { UtilService } from './util-service';
 import { Venta } from './venta';
+import { Ingrediente } from './ingrediente';
 
 import { Registrar } from './registrar';
 
@@ -106,6 +107,17 @@ export class RocketDeliveryService {
     return this.http.post<any>(this.rocketDeliveryUrl + 'usuarios/guardar-usuario', registrarCliente, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
+      }),
+    });
+  }
+
+
+  //listar ingredientes en stock
+  getIngredientes(): Observable<Ingrediente[]> {
+    return this.http.get<Ingrediente[]>(this.rocketDeliveryUrl + 'api/listar-stock', {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.utilService.getToken(),
       }),
     });
   }
