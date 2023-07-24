@@ -48,4 +48,10 @@ export class CarritoComponent {
     this.totalPrecio = this.menus.reduce((total, menu) => total + menu.precio, 0);
   }
 
+  limpiarCarrito(): void {
+    this.utilService.limpiarCarrito();
+    this.getComidas();
+    this.calculateTotalPrecio();
+  }
+
 }
