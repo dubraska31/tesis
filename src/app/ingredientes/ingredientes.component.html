@@ -11,12 +11,11 @@
   </button>
 </div>
 
-<ul class="contact-list">
-  <li class="contact-item" *ngFor="let ingrediente of ingrediente">
+
+  <li *ngFor="let ingrediente of ingrediente">
     
     <strong>Nombre:</strong> {{ ingrediente.nombreIngrediente }}<br />
     <strong>Cantidad KG:</strong> {{ ingrediente.cantidadStock }}<br />
     <strong>Descripcion:</strong> {{ ingrediente.descripcionIngrediente }}<br />
     <strong>Imagen:</strong> {{ ingrediente.imagenIngrediente }}<br />
   </li>
-</ul>
