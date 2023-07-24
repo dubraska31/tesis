@@ -30,3 +30,22 @@ label {
     -webkit-border-radius: 50%;
     border-radius: 50%;
 }
+
+.back-button {
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 6px;
+    background: #007bff;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.back-button span {
+    margin-right: 8px; /* Añade un pequeño espacio entre la flecha y el texto */
+}
+
+.back-button:active {
+    transform: scale(0.96);
+}
