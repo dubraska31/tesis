@@ -8,5 +8,6 @@ export class Venta {
   menus: Menu[];
   contacto: Contacto;
   estado: Estado;
+  total: number;
 
 }

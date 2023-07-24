@@ -22,7 +22,19 @@ export class VentasComponent {
 
   getVentas(): void {
     this.rocketDeliveryService.getVentas()
-      .subscribe((ventas) => (this.ventas = ventas));
+      .subscribe(data => {
+        this.ventas = data;
+
+        this.ventas.forEach(venta => {
+          let total: number = 0;
+
+          venta.menus.forEach(menu => {
+            total = total + menu.precio;
+          });
+
+          venta.total = total;
+        })
+      })
   }
 
   onChange(estado: string, venta: Venta) {
