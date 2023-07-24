@@ -1,7 +1,11 @@
 <nav>
   <a routerLink="/admin-home">Volver</a>
 </nav>
-<br />
+<div class="botonAlineadoDerecha">
+  <button type="button" (click)="descargarComprobante()">
+    Descargar comprobante
+  </button>
+</div>
 <h2>Ventas</h2>
 <br>
 <ng-container *ngFor="let venta of ventas">
