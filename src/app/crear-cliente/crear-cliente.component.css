@@ -1,0 +1,25 @@
+input, select {
+    width: 200%;
+    padding: 12px 100px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  div {
+    text-align: center;
+  }
+
+  .add-button {
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 6px;
+    background: #007bff;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    
+}
