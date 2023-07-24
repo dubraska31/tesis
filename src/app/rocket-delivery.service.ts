@@ -93,10 +93,11 @@ export class RocketDeliveryService {
 
   // registrar usuario
   registrar(registrarCliente: Registrar): Observable<any> {
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json');
+
     return this.http.post<any>(this.rocketDeliveryUrl + 'usuarios/guardar-usuario', registrarCliente, {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      }),
+      headers, responseType: 'text' as 'json'
     });
   }
 
@@ -191,6 +192,16 @@ export class RocketDeliveryService {
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + this.utilService.getToken(),
       }),
+    });
+  }
+
+  descargarReporte(): Observable<any> {
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/octet-stream')
+      .set('Authorization', 'Bearer ' + this.utilService.getToken());
+
+    return this.http.get<any>(this.rocketDeliveryUrl + 'api/descargar-reporte', {
+      headers, responseType: 'blob' as 'json'
     });
   }
 

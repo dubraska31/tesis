@@ -28,15 +28,15 @@ export class GenerarUsuarioComponent {
     console.log("this.registrarCliente.username: " + this.registrarCliente.username);
     console.log("this.registrarCliente.password: " + this.registrarCliente.password);
 
-    this.rocketDeliveryService.registrar(this.registrarCliente)
-      .subscribe(() => {
+    this.rocketDeliveryService.registrar(this.registrarCliente).subscribe({
+      next: () => {
         this.router.navigate(['/crear-cliente']);
-      }, error => {
-        console.log('error: ' + error.message);
-        if (error.status == 200) {
-          this.router.navigate(['/crear-cliente']);
-        }
-      });
+      },
+      error: (e) => {
+        console.error('error: ' + e.message);
+      },
+      complete: () => console.info('Cliente registrado')
+    });
   }
 
 }
