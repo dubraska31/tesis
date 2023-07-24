@@ -1,6 +1,5 @@
-<nav>
-  <a routerLink="/admin-home">Admin Home</a>
-</nav>
+<button type="button" class="add-button" routerLink="/admin-home" class="fa-solid fa-arrow-left fa-2xl"
+  style="color: #007bff;"></button>
 
 <h2 class="margenTop30px">Menus</h2>
 
@@ -9,15 +8,6 @@
     Agregar menu
   </button>
 </div>
-
-<!-- <ul class="heroes">
-  <li *ngFor="let comida of comidas">
-    <a routerLink="/detail/{{comida.id}}">
-      <span class="badge">{{comida.id}}</span> {{comida.name}}
-    </a>
-    <button type="button" class="delete" title="delete hero" (click)="delete(comida)">x</button>
-  </li>
-</ul> -->
 
 <ul class="heroes">
   <li *ngFor="let menu of menus">
