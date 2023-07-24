@@ -205,4 +205,14 @@ export class RocketDeliveryService {
     });
   }
 
+  descargarCartera(): Observable<any> {
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/octet-stream')
+      .set('Authorization', 'Bearer ' + this.utilService.getToken());
+
+    return this.http.get<any>(this.rocketDeliveryUrl + 'api/descargar-cartera', {
+      headers, responseType: 'blob' as 'json'
+    });
+  }
+
 }

@@ -1,39 +1,37 @@
-
-<button type="button" class="add-button" routerLink="/admin-home" class="fa-solid fa-arrow-left fa-2xl" style="color: #007bff;"></button>
+<button type="button" class="add-button" routerLink="/admin-home" class="fa-solid fa-arrow-left fa-2xl"
+  style="color: #007bff;"></button>
 
 <div class="botonAlineadoDerecha">
-  <button type="button"  class="fa-solid fa-download fa-xs">
-  Descargar Contactos (en progreso)
+  <button type="button" class="fa-solid fa-download fa-xs" (click)="descargarCartera()">
+    Descargar Contactos
   </button>
 </div>
 
 <h1>Cartera de clientes</h1>
 
-  <button type="button" class="add-button" routerLink="/crear-cliente">
-    Crear cliente
-  </button>
+<button type="button" class="add-button" routerLink="/crear-cliente">
+  Crear cliente
+</button>
 
-
-  <table>
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Email</th>
-        <th>Teléfono</th>
-        <th>Dirección</th>
-        <th>Usuario</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let contacto of contactosList">
-        <td>{{ contacto.nombre }}</td>
-        <td>{{ contacto.apellido }}</td>
-        <td>{{ contacto.email }}</td>
-        <td>{{ contacto.telefono }}</td>
-        <td>{{ contacto.direccion }}</td>
-        <td>{{ contacto.usuario.username }}</td>
-      </tr>
-    </tbody>
-  </table>
-
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Email</th>
+      <th>Teléfono</th>
+      <th>Dirección</th>
+      <th>Usuario</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let contacto of contactosList">
+      <td>{{ contacto.nombre }}</td>
+      <td>{{ contacto.apellido }}</td>
+      <td>{{ contacto.email }}</td>
+      <td>{{ contacto.telefono }}</td>
+      <td>{{ contacto.direccion }}</td>
+      <td>{{ contacto.usuario.username }}</td>
+    </tr>
+  </tbody>
+</table>
