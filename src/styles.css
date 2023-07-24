@@ -1,6 +1,6 @@
 /* Global Styles */
 * {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Brush Script MT', Helvetica, sans-serif;
 }
 
 h1 {
@@ -55,7 +55,7 @@ button {
 }
 
 button:hover {
-  color: white;
+  color: #007bff;
 }
 
 button:disabled {
@@ -66,8 +66,7 @@ button:disabled {
 
 /* Navigation link styles */
 nav a {
-  padding: 5px 10px;
-  text-decoration: none;
+  padding: 5px 59px;
   margin-right: 10px;
   margin-top: 10px;
   display: inline-block;
@@ -78,7 +77,8 @@ nav a {
 
 nav a:hover {
   color: white;
-  background-color: #42545C;
+  background-color:  #007bff;
+  text-decoration: none;
 }
 
 nav a.active {
