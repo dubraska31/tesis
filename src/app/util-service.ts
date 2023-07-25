@@ -22,6 +22,14 @@ export class UtilService {
     localStorage.setItem('IdContacto', value);
   }
 
+  public getUserName(): string | null {
+    return localStorage.getItem('userName');
+  }
+
+  public setUserName(value: string) {
+    localStorage.setItem('userName', value);
+  }
+
   public getComidasCarrito(): Menu[] {
     return this.comidasCarrito;
   }
