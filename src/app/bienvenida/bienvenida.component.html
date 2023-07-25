@@ -1,19 +1,17 @@
-<div class="bienvenida">
+<div class="botonAlineadoDerecha">
+  <button type="button" class="add-button " routerLink="/login">
+    Ingresar
+  </button>
 
-  <div>
-    <button type="button" class="add-button " routerLink="/login">
-      Ingresar
-    </button>
-
-    <button type="button" class="add-button" routerLink="/generar-usuario">
-      Registrarse
-    </button>
-  </div>
-  <h1>Bienvenidos a Pastas Bohl</h1>
+  <button type="button" class="add-button" routerLink="/generar-usuario">
+    Registrarse
+  </button>
 </div>
+
 
 <div class="menu-container">
   <div class="heroes-menu margenTop30px">
+    <h1>Bienvenidos a Pastas Bohl</h1>
     <a *ngFor="let menu of menus">
       {{ menu.nombreMenu }} ${{ menu.precio }}
       <br />
