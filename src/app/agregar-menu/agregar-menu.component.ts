@@ -28,7 +28,7 @@ export class AgregarMenuComponent {
   }
 
   listarStock() {
-    this.rocketDeliveryService.listarStock().subscribe(data => {
+    this.rocketDeliveryService.getIngredientes().subscribe(data => {
       this.ingredientes = data;
     });
   }
