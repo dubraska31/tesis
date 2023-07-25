@@ -45,6 +45,7 @@ export class LoginComponent {
         this.rocketDeliveryService.buscarContactoByUsername(username)
           .subscribe(data => {
             this.utilService.setIdContacto(data.idContacto.toString());
+            this.utilService.setUserName(username);
 
             if (username === 'admin') {
               this.router.navigate(['/admin-home']);

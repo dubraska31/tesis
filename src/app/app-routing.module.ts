@@ -35,8 +35,8 @@ const routes: Routes = [
   { path: 'bienvenida', component: BienvenidaComponent },
   { path: 'ingredientes', component: IngredientesComponent },
   { path: 'crear-ingrediente', component: CrearIngredienteComponent },
-  { path: "**", redirectTo: "bienvenida" },
   { path: 'perfil-usuario', component: PerfilUsuarioComponent },
+  { path: "**", redirectTo: "bienvenida" }
 ];
 
 @NgModule({

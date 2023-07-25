@@ -1,1 +1,23 @@
-<p>perfil-usuario works!</p>
+<button type="button" class="add-button" routerLink="/dashboard" class="fa-solid fa-arrow-left fa-2xl"
+  style="color: #007bff;">
+</button>
+
+<h1>Perfil Usuario</h1>
+<br>
+<div>
+  <div>
+    <table>
+      <tr>
+        <td><label for="new-hero">Clave nueva: </label></td>
+        <td><input [(ngModel)]="clave" /></td>
+      </tr>
+      <tr>
+        <td>
+          <button type="button" (click)="cambiarClave()">
+            Cambiar
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

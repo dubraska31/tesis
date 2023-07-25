@@ -215,4 +215,13 @@ export class RocketDeliveryService {
     });
   }
 
+  cambiarClave(usuario: Usuario): Observable<void> {
+    return this.http.post<void>(this.rocketDeliveryUrl + 'api/cambiar-contraseña', usuario, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.utilService.getToken(),
+      }),
+    });
+  }
+
 }
