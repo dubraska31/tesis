@@ -24,9 +24,4 @@ export class IngredientesComponent {
       .subscribe((ingrediente) => (this.ingrediente = ingrediente));
   }
 
-
-
-
-
-
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Ingrediente } from '../ingrediente';
 import { Menu } from '../menu';
 import { RocketDeliveryService } from '../rocket-delivery.service';
 
@@ -10,6 +11,7 @@ import { RocketDeliveryService } from '../rocket-delivery.service';
 export class AgregarMenuComponent {
 
   menu: Menu;
+  ingredientes: Ingrediente[];
 
   constructor(
     private rocketDeliveryService: RocketDeliveryService
@@ -17,11 +19,18 @@ export class AgregarMenuComponent {
     this.menu = Menu.buildDefault();
   }
 
-  agregarMenu(): void {
-    console.log("this.menu.nombreMenu: " + this.menu.nombreMenu);
-    console.log("this.menu.descripcion_menu: " + this.menu.descripcion_menu);
+  ngOnInit(): void {
+    this.listarStock();
+  }
 
+  agregarMenu(): void {
     this.rocketDeliveryService.agregarMenu(this.menu).subscribe();
+  }
+
+  listarStock() {
+    this.rocketDeliveryService.getIngredientes().subscribe(data => {
+      this.ingredientes = data;
+    });
   }
 
 }

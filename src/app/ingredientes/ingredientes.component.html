@@ -1,5 +1,5 @@
-
-<button type="button" class="add-button" routerLink="/admin-home" class="fa-solid fa-arrow-left fa-2xl" style="color: #007bff;"></button>
+<button type="button" class="add-button" routerLink="/admin-home" class="fa-solid fa-arrow-left fa-2xl"
+  style="color: #007bff;"></button>
 
 <h1>Ingredientes en Stock</h1>
 
@@ -7,22 +7,19 @@
   Crear Ingrediente
 </button>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Cantidad KG</th>
-        <th>Descripción</th>
-        <th>Imagen</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let ingrediente of ingrediente">
-        <td>{{ ingrediente.nombreIngrediente }}</td>
-        <td>{{ ingrediente.cantidadStock }}</td>
-        <td>{{ ingrediente.descripcionIngrediente }}</td>
-        <!--<td>{{ ingrediente.imagenIngrediente }}</td>-->
-      </tr>
-    </tbody>
-  </table>
-
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Cantidad KG</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ingrediente of ingrediente">
+      <td>{{ ingrediente.nombreIngrediente }}</td>
+      <td>{{ ingrediente.cantidadStock }}</td>
+      <td>{{ ingrediente.descripcionIngrediente }}</td>
+    </tr>
+  </tbody>
+</table>
