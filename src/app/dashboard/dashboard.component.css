@@ -1,29 +1,20 @@
 /* DashboardComponent's private CSS styles */
 
-h2 {
-  text-align: center;
-}
-
 .heroes-menu {
-  padding: 0;
+  padding: 1rem;
   max-width: 1000px;
-
-  /* flexbox */
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
   align-content: flex-start;
   align-items: flex-start;
+  background-color: #f9f9f9; /* Add a light background color */
 }
 
 a {
   background-color: #85a1b1;
-  border-radius: 2px;
+  border-radius: 4px;
   padding: 1rem;
   font-size: 1.2rem;
   text-decoration: none;
@@ -31,9 +22,10 @@ a {
   color: #fff;
   text-align: center;
   width: 100%;
-  min-width: 70px;
-  margin: .5rem auto;
+  min-width: 120px;
+  margin: 1rem;
   box-sizing: border-box;
+  transition: background-color 0.2s ease; /* Add a smooth transition on hover */
 
   /* flexbox */
   order: 0;
@@ -43,12 +35,13 @@ a {
 
 @media (min-width: 600px) {
   a {
-    width: 18%;
+    width: 23%; /* Adjust the width for larger screens */
     box-sizing: content-box;
+
   }
 }
 
 a:hover {
   background-color: #424f57;
-  color:#fff !important;
+  color: #fff;
 }
