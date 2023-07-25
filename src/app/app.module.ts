@@ -24,6 +24,7 @@ import { GenerarUsuarioComponent } from './generar-usuario/generar-usuario.compo
 import { BienvenidaComponent } from './bienvenida/bienvenida.component';
 import { IngredientesComponent } from './ingredientes/ingredientes.component';
 import { CrearIngredienteComponent } from './crear-ingrediente/crear-ingrediente.component';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
 @NgModule({
   imports: [
@@ -57,7 +58,8 @@ import { CrearIngredienteComponent } from './crear-ingrediente/crear-ingrediente
     GenerarUsuarioComponent,
     BienvenidaComponent,
     IngredientesComponent,
-    CrearIngredienteComponent
+    CrearIngredienteComponent,
+    PerfilUsuarioComponent
   ],
   bootstrap: [AppComponent]
 })

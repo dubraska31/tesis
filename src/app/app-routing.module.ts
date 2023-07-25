@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { PagoComponent } from './pago/pago.component';
 import { VentasComponent } from './ventas/ventas.component';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'bienvenida', pathMatch: 'full' },
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'ingredientes', component: IngredientesComponent },
   { path: 'crear-ingrediente', component: CrearIngredienteComponent },
   { path: "**", redirectTo: "bienvenida" },
+  { path: 'perfil-usuario', component: PerfilUsuarioComponent },
 ];
 
 @NgModule({
