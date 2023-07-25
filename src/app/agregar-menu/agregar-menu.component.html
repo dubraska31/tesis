@@ -26,6 +26,14 @@
   </tr>
 </table>
 
+<h2 class="margenTop30px">Ingredientes</h2>
+
+<ul class="heroes">
+  <li *ngFor="let ingrediente of ingredientes">
+    {{ingrediente.nombreIngrediente}}: {{ingrediente.cantidadStock}}
+  </li>
+</ul>
+
 <div>
   <button type="button" class="add-button" (click)="agregarMenu()" routerLink="/menu">
     Agregar comida

@@ -55,6 +55,18 @@ export class RocketDeliveryService {
     );
   }
 
+  listarStock(): Observable<Ingrediente[]> {
+    return this.http.get<Ingrediente[]>(
+      this.rocketDeliveryUrl + 'api/listar-stock',
+      {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + this.utilService.getToken(),
+        }),
+      }
+    );
+  }
+
   getUsuariosSinContacto(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(this.rocketDeliveryUrl + 'usuarios/listar-usuarios-sin-contacto', {
       headers: new HttpHeaders({
