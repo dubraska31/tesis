@@ -5,9 +5,10 @@
 </div>
 <h1>Menu de Pastas Bohl</h1>
 
-<button type="button" routerLink="/carrito" class="fa-sharp fa-solid fa-cart-arrow-down fa-sm" style="color: #007bff;">Carrito</button>
 
+<div><button type="button" routerLink="/carrito" class="fa-sharp fa-solid fa-cart-arrow-down fa-sm" style="color: #007bff;">Carrito</button></div>
 <div class="heroes-menu margenTop30px">
+
   <a *ngFor="let menu of menus" (click)="agregarAlCarrito(menu)">
     {{ menu.nombreMenu }} ${{ menu.precio }}
     <br />
