@@ -6,33 +6,49 @@
 <table>
   <tr>
     <td><label for="new-hero">nombre menu: </label></td>
-    <td><input [(ngModel)]="menu.nombreMenu" /></td>
+    <td>
+      <input [(ngModel)]="menu.nombreMenu" />
+    </td>
   </tr>
   <tr>
     <td><label for="new-hero">descripcion menu: </label></td>
-    <td><input [(ngModel)]="menu.descripcion_menu" /></td>
+    <td>
+      <input [(ngModel)]="menu.descripcion_menu" />
+    </td>
   </tr>
   <tr>
     <td><label for="new-hero">precio: </label></td>
-    <td><input type="number" [(ngModel)]="menu.precio" /></td>
+    <td>
+      <input type="number" [(ngModel)]="menu.precio" />
+    </td>
   </tr>
   <tr>
     <td><label for="new-hero">imagen menu: </label></td>
-    <td><input [(ngModel)]="menu.imagen_menu" /></td>
+    <td>
+      <input [(ngModel)]="menu.imagen_menu" />
+    </td>
   </tr>
   <tr>
     <td><label for="new-hero">disponible: </label></td>
-    <td><input type="checkbox" [(ngModel)]="menu.disponible" /></td>
+    <td>
+      <input type="checkbox" [(ngModel)]="menu.disponible" />
+    </td>
   </tr>
 </table>
 
 <h2 class="margenTop30px">Ingredientes</h2>
 
-<ul class="heroes">
-  <li *ngFor="let ingrediente of ingredientes">
-    {{ingrediente.nombreIngrediente}}: {{ingrediente.cantidadStock}}
-  </li>
-</ul>
+<table>
+  <tr *ngFor="let ingrediente of ingredientes">
+    <td>
+      <input type="checkbox" [(ngModel)]="ingrediente.disponible" />
+    </td>
+    <td>{{ingrediente.nombreIngrediente}}</td>
+    <td>
+      <input type="number" [(ngModel)]="ingrediente.cantidadStock" />
+    </td>
+  </tr>
+</table>
 
 <div>
   <button type="button" class="add-button" (click)="agregarMenu()" routerLink="/menu">

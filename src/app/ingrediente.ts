@@ -1,11 +1,11 @@
 
 export class Ingrediente {
     idIngredienteStock: number;
-    cantidadStock: string;
+    cantidadStock: number;
     nombreIngrediente: string;
     descripcionIngrediente : string;
     imagenIngrediente: string;
-
+    disponible: boolean;
 
 public static buildDefault(): Ingrediente {
     const ingrediente = new Ingrediente();

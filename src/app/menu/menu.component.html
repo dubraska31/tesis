@@ -11,8 +11,6 @@
 
 <ul class="heroes">
   <li *ngFor="let menu of menus">
-    <a routerLink="/detail/{{ menu.idMenu }}">
-      <span class="badge">{{ menu.idMenu }}</span> {{ menu.descripcion_menu }}
-    </a>
+    <span class="badge">{{ menu.idMenu }}</span> {{ menu.descripcion_menu }}
   </li>
 </ul>
