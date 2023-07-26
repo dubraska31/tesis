@@ -1,20 +1,32 @@
-<h2>Carrito</h2>
+<button type="button" class="add-button" routerLink="/dashboard" class="fa-solid fa-arrow-left fa-2xl"
+  style="color: #007bff;"></button>
 
-<nav>
-  <button type="button" routerLink="/dashboard">Volver</button>
-  <button (click)="limpiarCarrito()">Limpiar Carrito</button>
-</nav>
+<h1>Carrito</h1>
 
-<ul class="heroes">
-  <li *ngFor="let menu of menus">
-    <a>
-      <span class="badge">${{menu.precio}}</span> {{menu.nombreMenu}}
-    </a>
-  </li>
-</ul>
+<div class="botonAlineadoDerecha">
+  <button (click)="limpiarCarrito()" class="fa-solid fa-broom fa-sm" style="color: #007bff;"> Limpiar</button>
+</div>
 
-<p>Total Precio: {{ totalPrecio }}</p>
 
-<nav>
-  <button [disabled]="menus.length <= 0" (click)="pagar()">Pagar</button>
-</nav>
+
+
+<div class="menu-container">
+  <ul class="estilo">
+    <li *ngFor="let menu of menus">
+      <a>
+        <span class="badge">${{menu.precio}}</span> {{menu.nombreMenu}}
+      </a>
+    </li>
+  </ul>
+
+  <p>Total Precio: {{ totalPrecio }}</p>
+</div>
+
+
+
+
+
+  <div class="botonAlineadoDerecha">
+    <button [disabled]="menus.length <= 0" (click)="pagar()" class="fa-solid fa-sack-dollar fa-sm"
+      style="color: #007bff;"> Pagar</button>
+  </div>
