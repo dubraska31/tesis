@@ -23,14 +23,14 @@ export class AgregarMenuComponent {
     this.listarStock();
   }
 
-  agregarMenu(): void {
-    this.rocketDeliveryService.agregarMenu(this.menu).subscribe();
-  }
-
   listarStock() {
     this.rocketDeliveryService.getIngredientes().subscribe(data => {
       this.ingredientes = data;
     });
+  }
+
+  agregarMenu(): void {
+    this.rocketDeliveryService.agregarMenu(this.menu).subscribe();
   }
 
 }

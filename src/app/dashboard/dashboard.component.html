@@ -23,9 +23,6 @@
   <div class="heroes-menu margenTop30px">
 
     <a *ngFor="let menu of menus" (click)="agregarAlCarrito(menu)">
-      {{ menu.nombreMenu }} ${{ menu.precio }}
-      <br />
-
       <ng-container *ngIf="menu.imagen_menu === null">
         <img
           src="https://lh3.googleusercontent.com/drive-viewer/AITFw-z7V8-zAeF1DHH-wAVFeKoYW9_6q694dWrvguRtJici-d0dJCr5JAUmNBFjlRyzb0Nk9qoQgKx7J2a5TvKhfb-5Cswb=s2560"
@@ -33,9 +30,16 @@
       </ng-container>
 
       <ng-container *ngIf="menu.imagen_menu !== null">
-        <img src="{{ menu.imagen_menu }}" width="100" height="100" />
+        <img src="{{ menu.imagen_menu }}" />
       </ng-container>
 
+      <br>
+
+      {{ menu.nombreMenu }}
+
+      <br>
+
+      ${{ menu.precio }}
     </a>
   </div>
 </div>
