@@ -23,13 +23,15 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.getComidas();
     this.getMenus();
   }
 
   getMenus(): void {
     this.rocketDeliveryService.getMenus()
-      .subscribe(menus => this.menus = menus);
+      .subscribe(menus => {
+        this.menus = menus;
+        this.menus = this.menus.filter(menu => menu.disponible != false);
+      });
   }
 
   getComidas(): void {
@@ -45,4 +47,5 @@ export class DashboardComponent implements OnInit {
   logout(): void {
     this.router.navigate(['/bienvenida']);
   }
+
 }
