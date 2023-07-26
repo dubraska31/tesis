@@ -1,3 +1,5 @@
+import { IngredienteEnMenu } from "./ingrediente-en-menu";
+
 export class Menu {
 
   idMenu: number;
@@ -6,6 +8,7 @@ export class Menu {
   precio: number;
   imagen_menu: string;
   disponible: boolean;
+  ingredientesEnMenu: IngredienteEnMenu[];
 
   public static buildDefault(): Menu {
     const menu = new Menu();
@@ -15,6 +18,7 @@ export class Menu {
     menu.precio = null;
     menu.imagen_menu = null;
     menu.disponible = true;
+    menu.ingredientesEnMenu = [];
 
     return menu;
   }
