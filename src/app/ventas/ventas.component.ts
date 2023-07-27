@@ -60,7 +60,7 @@ export class VentasComponent {
       }
 
       case "entregado": {
-        this.rocketDeliveryService.entregado(venta)
+        this.rocketDeliveryService.establecerEntregado(venta)
           .subscribe(data => {
             this.ventas = data;
             this.getVentas();
