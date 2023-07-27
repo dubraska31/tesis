@@ -132,7 +132,7 @@ export class RocketDeliveryService {
   }
 
   establecerEnProgreso(venta: Venta): Observable<any> {
-    return this.http.post<any>(this.rocketDeliveryUrl + 'api/en-progreso', venta, {
+    return this.http.get<any>(this.rocketDeliveryUrl + 'api/en-progreso/' + venta.idPedido, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + this.utilService.getToken(),
@@ -141,16 +141,7 @@ export class RocketDeliveryService {
   }
 
   listoParaEntrega(venta: Venta): Observable<any> {
-    return this.http.post<any>(this.rocketDeliveryUrl + 'api/listo-para-entrega', venta, {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + this.utilService.getToken(),
-      }),
-    });
-  }
-
-  entregado(venta: Venta): Observable<any> {
-    return this.http.post<any>(this.rocketDeliveryUrl + 'api/entregado', venta, {
+    return this.http.get<any>(this.rocketDeliveryUrl + 'api/listo-para-entrega/' + venta.idPedido, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + this.utilService.getToken(),
@@ -159,7 +150,7 @@ export class RocketDeliveryService {
   }
 
   establecerEntregado(venta: Venta): Observable<any> {
-    return this.http.post<any>(this.rocketDeliveryUrl + 'api/entregado', venta, {
+    return this.http.get<any>(this.rocketDeliveryUrl + 'api/entregado/' + venta.idPedido, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + this.utilService.getToken(),
@@ -168,7 +159,7 @@ export class RocketDeliveryService {
   }
 
   establecerCancelado(venta: Venta): Observable<any> {
-    return this.http.post<any>(this.rocketDeliveryUrl + 'api/cancelado', venta, {
+    return this.http.get<any>(this.rocketDeliveryUrl + 'api/cancelado/' + venta.idPedido, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + this.utilService.getToken(),
