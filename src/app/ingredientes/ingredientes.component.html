@@ -11,15 +11,15 @@
   <thead>
     <tr>
       <th>Nombre</th>
-      <th>Cantidad </th>
       <th>Descripción</th>
+      <th>Cantidad </th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let ingrediente of ingrediente">
       <td>{{ ingrediente.nombreIngrediente }}</td>
-      <td>{{ ingrediente.cantidadStock }}</td>
       <td>{{ ingrediente.descripcionIngrediente }}</td>
+      <td>{{ ingrediente.cantidadStock }}</td>
     </tr>
   </tbody>
 </table>

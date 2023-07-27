@@ -2,7 +2,7 @@
 div {
     text-align: center;
   }
-  
+
   .add-button {
     color: #fff;
     padding: 8px 10px;
@@ -12,21 +12,22 @@ div {
     border: none;
     cursor: pointer;
     font-size: 16px;
-    
+
   }
   table {
     border-collapse: collapse;
     width: 100%;
+
   }
-  
+
   th, td {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
+    text-align: center;
   }
-  
+
   th {
     background-color: #f2f2f2;
   }
 
-  
