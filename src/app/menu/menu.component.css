@@ -62,15 +62,20 @@ input {
   border-radius: 4px 0 0 4px;
 }
 
-.add-button {
- padding: .5rem 1.5rem;
- font-size: 1rem;
- margin-bottom: 2rem;
+div {
+  text-align: left;
 }
 
-.add-button:hover {
-  color: white;
-  background-color: #42545C;
+.add-button {
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: #007bff;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+
 }
 
 button.delete {

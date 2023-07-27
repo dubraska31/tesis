@@ -215,4 +215,14 @@ export class RocketDeliveryService {
     });
   }
 
+  //Eliminar menu
+  /*eliminarMenu(idMenu: number): Observable<Menu> {
+    const url = `${this.heroesUrl}/${id}`;
+
+    return this.http.delete<Menu>(url, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted hero id=${id}`)),
+      catchError(this.handleError<Hero>('deleteHero'))
+    );
+  }*/
+
 }

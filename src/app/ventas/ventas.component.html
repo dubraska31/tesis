@@ -1,13 +1,14 @@
 <button type="button" class="add-button" routerLink="/admin-home" class="fa-solid fa-arrow-left fa-2xl"
   style="color: #007bff;"></button>
 
+<h1>Ventas</h1>
+
 <div class="botonAlineadoDerecha">
   <button type="button" (click)="descargarComprobante()" class="fa-solid fa-download fa-xs">
     Descargar reporte
   </button>
 </div>
 
-<h2>Ventas</h2>
 <br>
 <ng-container *ngFor="let venta of ventas">
   <div>Pedido: {{venta.idPedido}}</div>
