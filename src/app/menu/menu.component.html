@@ -1,20 +1,28 @@
 <button type="button" class="add-button" routerLink="/admin-home" class="fa-solid fa-arrow-left fa-2xl"
   style="color: #007bff;"></button>
 
-<h1 class="margenTop30px">Menus Activos</h1>
+<h1 class="margenTop30px">Listado de Menus Activos</h1>
 
-<div>
-  <button type="button" class="add-button" routerLink="/agregar-menu">
-    Crear menu
-  </button>
-</div>
+<button type="button" class="add-button" routerLink="/agregar-menu">
+  Crear
+</button>
 
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Acción </th>
+    </tr>
+  </thead>
 
-
-
-
-<ul class="heroes">
-  <li *ngFor="let menu of menus">
-    <span class="badge">{{ menu.idMenu }}</span> {{ menu.nombreMenu }}
-  </li>
-</ul>
+  <tbody>
+    <tr *ngFor="let menu of menus">
+      <td>{{ menu.nombreMenu }}</td>
+      <td>{{ menu.descripcion_menu}}</td>
+      <td><button type="button" class=" fa-solid fa-pen-to-square" style="color: #e89521;"
+          routerLink="/crear-ingrediente">
+        </button></td>
+    </tr>
+  </tbody>
+</table>

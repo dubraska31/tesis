@@ -8,13 +8,12 @@
     Descargar reporte
   </button>
 </div>
-
 <br>
 <ng-container *ngFor="let venta of ventas">
-  <div>Pedido: {{venta.idPedido}}</div>
+  <div> <strong>Pedido: {{venta.idPedido}}</strong></div>
   <div>Nombre Cliente: {{venta.contacto.nombre}}</div>
   <div>
-    Estado: {{venta.estado.nombreEstado}}
+    Estado del Pedido: {{venta.estado.nombreEstado}}
 
     <select [ngModel]="estadoSeleccionado" (ngModelChange)="onChange($event, venta)">
       <option value="enProgreso">En Progreso</option>
