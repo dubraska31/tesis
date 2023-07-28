@@ -17,6 +17,7 @@ import { MenuComponent } from './menu/menu.component';
 import { PagoComponent } from './pago/pago.component';
 import { VentasComponent } from './ventas/ventas.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import { EditarIngredienteComponent } from './editar-ingrediente/editar-ingrediente.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'bienvenida', pathMatch: 'full' },
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'ingredientes', component: IngredientesComponent },
   { path: 'crear-ingrediente', component: CrearIngredienteComponent },
   { path: 'perfil-usuario', component: PerfilUsuarioComponent },
+  { path: 'editar-ingrediente', component: EditarIngredienteComponent },
   { path: "**", redirectTo: "bienvenida" }
 ];
 

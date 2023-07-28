@@ -130,7 +130,7 @@ export class RocketDeliveryService {
       }),
     });
   }
-
+  //estados
   establecerEnProgreso(venta: Venta): Observable<any> {
     return this.http.get<any>(this.rocketDeliveryUrl + 'api/en-progreso/' + venta.idPedido, {
       headers: new HttpHeaders({
@@ -185,7 +185,7 @@ export class RocketDeliveryService {
       }),
     });
   }
-
+  //reportes
   descargarReporte(): Observable<any> {
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/octet-stream')
@@ -206,6 +206,8 @@ export class RocketDeliveryService {
     });
   }
 
+
+
   cambiarClave(usuario: Usuario): Observable<void> {
     return this.http.post<void>(this.rocketDeliveryUrl + 'api/cambiar-contraseña', usuario, {
       headers: new HttpHeaders({
@@ -220,6 +222,16 @@ export class RocketDeliveryService {
     const url = `${this.rocketDeliveryUrl}api/eliminar-ingrediente/${idIngredienteStock}`;
 
     return this.http.delete<void>(url, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.utilService.getToken(),
+      }),
+    });
+  }
+
+   // Editar ingrediente
+  editarIngrediente(ingrediente: Ingrediente): Observable<void> {
+    return this.http.post<void>(this.rocketDeliveryUrl + 'api/editar-ingrediente', ingrediente, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + this.utilService.getToken(),

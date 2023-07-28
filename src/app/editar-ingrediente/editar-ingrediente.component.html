@@ -1,0 +1,18 @@
+<button type="button" class="add-button" routerLink="/ingrediens" class="fa-solid fa-arrow-left fa-2xl"
+  style="color: #007bff;">
+</button>
+<!-- editar-ingrediente.component.html -->
+<h2>Edit Ingredient</h2>
+
+<form (ngSubmit)="editarIngrediente(ingrediente)" #ingredientForm="ngForm">
+  <div>
+    <label for="nombreIngrediente">Name:</label>
+    <input type="text" id="nombreIngrediente" name="nombreIngrediente" [(ngModel)]="ingrediente.nombreIngrediente" required>
+  </div>
+  <div>
+    <label for="descripcionIngrediente">Description:</label>
+    <textarea id="descripcionIngrediente" name="descripcionIngrediente" [(ngModel)]="ingrediente.descripcionIngrediente"></textarea>
+  </div>
+  <!-- Add other fields as needed -->
+  <button type="submit">Save Changes</button>
+</form>

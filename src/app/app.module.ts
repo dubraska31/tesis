@@ -25,6 +25,7 @@ import { BienvenidaComponent } from './bienvenida/bienvenida.component';
 import { IngredientesComponent } from './ingredientes/ingredientes.component';
 import { CrearIngredienteComponent } from './crear-ingrediente/crear-ingrediente.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import { EditarIngredienteComponent } from './editar-ingrediente/editar-ingrediente.component';
 
 @NgModule({
   imports: [
@@ -59,7 +60,8 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
     BienvenidaComponent,
     IngredientesComponent,
     CrearIngredienteComponent,
-    PerfilUsuarioComponent
+    PerfilUsuarioComponent,
+    EditarIngredienteComponent
   ],
   bootstrap: [AppComponent]
 })

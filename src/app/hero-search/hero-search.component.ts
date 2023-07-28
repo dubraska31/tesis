@@ -44,8 +44,13 @@ export class HeroSearchComponent implements OnInit {
   }
 
   agregarAlCarrito(menu: Menu): void {
-    this.utilService.agregarComidaCarrito(menu);
-    alert('Agregado al carrito!');
+    const confirmarAgregar = confirm('¿Desea agregar al carrito?');
+
+    if (confirmarAgregar) {
+      this.utilService.agregarComidaCarrito(menu);
+      alert('Agregado al carrito!');
+    }
   }
+
 
 }

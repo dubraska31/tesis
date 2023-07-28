@@ -38,11 +38,15 @@ export class DashboardComponent implements OnInit {
     this.heroService.getHeroes()
       .subscribe(comidas => this.comidas = comidas);
   }
-
   agregarAlCarrito(menu: Menu): void {
-    this.utilService.agregarComidaCarrito(menu);
-    alert('Agregado al carrito!');
+    const confirmarAgregar = confirm('¿Desea agregar al carrito?');
+
+    if (confirmarAgregar) {
+      this.utilService.agregarComidaCarrito(menu);
+      alert('Agregado al carrito!');
+    }
   }
+
 
   logout(): void {
     this.router.navigate(['/bienvenida']);
