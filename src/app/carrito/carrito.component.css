@@ -1,43 +1,56 @@
-/* Centrar el contenido dentro de menu-container */
-.menu-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px; /* Agregar 20px de espacio externo alrededor del contenedor */
-  width: 80%;
-}
 
-/* Estilos para la lista y los elementos de lista */
-.estilo {
-  list-style: none;
-  padding: 20;
-  margin: 0;
-}
 
-.estilo li {
-  margin: 8px 0;
-}
 
-/* Estilos para los enlaces */
-.estilo li a {
-  text-decoration: none;
-  color: #333; /* Color de texto para los enlaces */
-  display: inline-block;
-  padding: 8px;
-  border: 1px solid #ccc; /* Bordes para resaltar los elementos */
-  border-radius: 4px;
-  margin: 20px;
-}
+  /* Center the content horizontally */
+  .menu-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
 
-/* Estilos para el elemento span que muestra el precio */
-.estilo li a span.badge {
-  background-color: #007bff; /* Color de fondo del span */
-  color: #fff; /* Color de texto del span */
-  padding: 4px 8px; /* Hace que el span tenga forma circular */
-}
 
-/* Estilos para el párrafo "Total Precio" */
-.menu-container p {
-  margin-top: 20px;
-  font-weight: bold;
-}
+  /* Style the menu list */
+  .estilo {
+    list-style: none;
+    padding: 0;
+  }
+
+  .estilo li {
+    margin-bottom: 8px;
+  }
+
+  .estilo a {
+    display: block;
+    padding: 8px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #007bff;
+    background-color: #f5f5f5;
+  }
+
+  .estilo a:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  .estilo span.badge {
+    float: right;
+    font-size: 14px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+
+  /* Style the total price section */
+  .menu-container p {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+
+
+

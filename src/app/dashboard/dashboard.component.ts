@@ -43,7 +43,7 @@ export class DashboardComponent implements OnInit {
 
     if (confirmarAgregar) {
       this.utilService.agregarComidaCarrito(menu);
-      alert('Agregado al carrito!');
+
     }
   }
 
