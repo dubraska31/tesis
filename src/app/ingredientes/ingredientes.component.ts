@@ -24,4 +24,22 @@ export class IngredientesComponent {
       .subscribe((ingrediente) => (this.ingrediente = ingrediente));
   }
 
+
+  eliminarIngrediente(idIngredienteStock: number): void {
+    const confirmarEliminacion = window.confirm('¿Desea eliminar el ingrediente?');
+
+    if (confirmarEliminacion) {
+      this.rocketDeliveryService.eliminarIngrediente(idIngredienteStock)
+        .subscribe(() => {
+          // Actualizar la lista de ingredientes después de eliminar exitosamente
+          this.getIngredientes();
+        }, (error) => {
+          // Manejar el error en caso de que ocurra
+          console.error('Error al eliminar ingrediente:', error);
+        });
+    }
+  }
+
+
+
 }

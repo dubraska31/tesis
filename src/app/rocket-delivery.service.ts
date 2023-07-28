@@ -215,14 +215,16 @@ export class RocketDeliveryService {
     });
   }
 
-  //Eliminar menu
-  /*eliminarMenu(idMenu: number): Observable<Menu> {
-    const url = `${this.heroesUrl}/${id}`;
+  // Eliminar ingrediente
+  eliminarIngrediente(idIngredienteStock: number): Observable<void> {
+    const url = `${this.rocketDeliveryUrl}api/eliminar-ingrediente/${idIngredienteStock}`;
 
-    return this.http.delete<Menu>(url, this.httpOptions).pipe(
-      tap(_ => this.log(`deleted hero id=${id}`)),
-      catchError(this.handleError<Hero>('deleteHero'))
-    );
-  }*/
+    return this.http.delete<void>(url, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.utilService.getToken(),
+      }),
+    });
+  }
 
 }
