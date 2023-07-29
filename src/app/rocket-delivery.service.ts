@@ -227,6 +227,16 @@ export class RocketDeliveryService {
     });
   }
 
+  // Editar ingrediente
+  editarIngrediente(ingrediente: Ingrediente): Observable<void> {
+    return this.http.put<void>(this.rocketDeliveryUrl + 'api/editar-ingrediente', ingrediente, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.utilService.getToken(),
+      }),
+    });
+  }
+
   // Eliminar ingrediente
   eliminarIngrediente(idIngredienteStock: number): Observable<void> {
     const url = `${this.rocketDeliveryUrl}api/eliminar-ingrediente/${idIngredienteStock}`;
@@ -239,14 +249,15 @@ export class RocketDeliveryService {
     });
   }
 
-  // Editar ingrediente
-  editarIngrediente(ingrediente: Ingrediente): Observable<void> {
-    return this.http.post<void>(this.rocketDeliveryUrl + 'api/editar-ingrediente', ingrediente, {
+  // Eliminar menu
+  eliminarMenu(idMenu: number): Observable<void> {
+    const url = `${this.rocketDeliveryUrl}api/eliminar-menu/${idMenu}`;
+
+    return this.http.delete<void>(url, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + this.utilService.getToken(),
       }),
     });
   }
-
 }

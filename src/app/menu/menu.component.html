@@ -1,11 +1,8 @@
-<button type="button" class="add-button" routerLink="/admin-home" class="fa-solid fa-arrow-left fa-2xl"
-  style="color: #007bff;"></button>
+<button type="button" class="add-button" routerLink="/admin-home" class="fa-solid fa-arrow-left fa-2xl" style="color: #007bff;"></button>
 
 <h1 class="margenTop30px">Listado de Menus Activos</h1>
 
-<button type="button" class="add-button" routerLink="/agregar-menu">
-  Crear
-</button>
+<button type="button" class="add-button" routerLink="/agregar-menu">Crear</button>
 
 <table>
   <thead>
@@ -19,12 +16,12 @@
   <tbody>
     <tr *ngFor="let menu of menus">
       <td>{{ menu.nombreMenu }}</td>
-      <td>{{ menu.descripcion_menu}}</td>
-      <td><button type="button" class=" fa-solid fa-pen-to-square" style="color: #e89521;"
-          routerLink="/crear-ingrediente">
+      <td>{{ menu.descripcion_menu }}</td>
+      <td>
+        <button type="button" class="fa-solid fa-pen-to-square" style="color: #e89521;" [routerLink]="'/editar-menu/' + menu.idMenu">
         </button>
 
-        <button type="button" class="fa-solid fa-trash-can" style="color: #d31d09;" routerLink="/crear-ingrediente">
+        <button type="button" class="fa-solid fa-trash-can" style="color: #d31d09;" (click)="eliminarMenu(menu.idMenu)">
         </button>
 
       </td>

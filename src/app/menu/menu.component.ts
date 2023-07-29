@@ -35,14 +35,13 @@ export class MenuComponent {
       .subscribe((comidas) => (this.comidas = comidas));
   }
 
-  delete(comida: Hero): void {
-    this.comidas = this.comidas.filter((c) => c !== comida);
-    this.heroService.deleteHero(comida.id).subscribe();
-  }
+  eliminarMenu(idMenu: number): void {
+    const confirmation = window.confirm('¿Desea eliminar el menú?');
 
-  deleteMenu(menu: Menu): void {
-    this.menus = this.menus.filter((m) => m !== menu);
-    this.heroService.deleteHero(menu.idMenu).subscribe();
+    if (confirmation) {
+      this.rocketDeliveryService.eliminarMenu(idMenu).subscribe(() => {
+        this.menus = this.menus.filter((menu) => menu.idMenu !== idMenu);
+      });
+    }
   }
-
 }
