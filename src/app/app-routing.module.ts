@@ -31,7 +31,7 @@ const routes: Routes = [
   { path: 'agregar-menu', component: AgregarMenuComponent },
   { path: 'pago', component: PagoComponent },
   { path: 'ventas', component: VentasComponent },
-  { path: 'crear-cliente', component: CrearClienteComponent },
+  { path: 'crear-cliente/:id', component: CrearClienteComponent },
   { path: 'generar-usuario', component: GenerarUsuarioComponent },
   { path: 'bienvenida', component: BienvenidaComponent },
   { path: 'ingredientes', component: IngredientesComponent },

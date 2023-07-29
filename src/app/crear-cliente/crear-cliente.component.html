@@ -20,20 +20,11 @@
       </tr>
       <tr>
         <td><label for="new-hero">Telefono: </label></td>
-        <td><input type="number" [(ngModel)]="contacto.telefono" /></td>
+        <td><input type="number" [(ngModel)]="contacto.telefono"/></td>
       </tr>
       <tr>
         <td><label for="new-hero">Direccion: </label></td>
         <td><input [(ngModel)]="contacto.direccion" /></td>
-      </tr>
-      <tr>
-        <td><label for="new-hero">Usuario: </label></td>
-        <td>
-          <select [(ngModel)]="idUsuario">
-            <option [ngValue]="" disabled>Seleccionar usuario</option>
-            <option *ngFor="let u of usuarios" [ngValue]="u.idUsuario">{{u.username}}</option>
-          </select>
-        </td>
       </tr>
     </table>
   </div>

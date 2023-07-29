@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Contacto } from '../contacto';
 import { RocketDeliveryService } from '../rocket-delivery.service';
 import { Usuario } from '../usuario';
@@ -12,11 +12,11 @@ import { Usuario } from '../usuario';
 export class CrearClienteComponent {
 
   contacto: Contacto;
-  idUsuario: number;
   usuarios: Usuario[];
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private rocketDeliveryService: RocketDeliveryService
   ) {
     this.contacto = Contacto.buildDefault();
@@ -28,18 +28,16 @@ export class CrearClienteComponent {
       .subscribe((usuarios) => (this.usuarios = usuarios));
   }
 
-  onChange(idUsuario: number) {
-    this.idUsuario = idUsuario;
-  }
-
   agregarCliente() {
-    this.contacto.usuario.idUsuario = this.idUsuario;
+    this.contacto.usuario.idUsuario = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
 
     this.rocketDeliveryService.crearCliente(this.contacto)
       .subscribe(() => {
+        alert('Cliente creado exitosamente!');
         this.router.navigate(['/bienvenida']);
       }, error => {
         console.log('error: ' + error.message);
       });
   }
+
 }

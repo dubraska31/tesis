@@ -29,8 +29,12 @@ export class GenerarUsuarioComponent {
     console.log("this.registrarCliente.password: " + this.registrarCliente.password);
 
     this.rocketDeliveryService.registrar(this.registrarCliente).subscribe({
-      next: () => {
-        this.router.navigate(['/crear-cliente']);
+      next: (data) => {
+        if (data === 'EL USUARIO YA EXISTE') {
+          alert(data);
+        } else {
+          this.router.navigate(['/crear-cliente/' + data]);
+        }
       },
       error: (e) => {
         console.error('error: ' + e.message);
