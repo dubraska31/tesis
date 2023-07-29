@@ -40,4 +40,19 @@ export class CrearClienteComponent {
       });
   }
 
+  /*editarContacto(contacto: Contacto): void {
+    this.rocketDeliveryService.editarContacto(contacto).subscribe({
+      next: () => {
+        this.router.navigate(['/contactos']);
+      },
+      error: (e) => {
+        console.error('Error actualizando ingrediente: ' + e.message);
+      },
+      complete: () => console.info('Contacto actualizado')
+    });
+  }*/
+
+
+
+
 }

@@ -8,8 +8,9 @@ import { RocketDeliveryService } from '../rocket-delivery.service';
   styleUrls: ['./ingredientes.component.css']
 })
 export class IngredientesComponent {
-
   ingrediente: Ingrediente[] = [];
+  currentPage = 1;
+  itemsPerPage = 5;
 
   constructor(
     private rocketDeliveryService: RocketDeliveryService
@@ -24,22 +25,29 @@ export class IngredientesComponent {
       .subscribe((ingrediente) => (this.ingrediente = ingrediente));
   }
 
-
   eliminarIngrediente(idIngredienteStock: number): void {
     const confirmarEliminacion = window.confirm('¿Desea eliminar el ingrediente?');
 
     if (confirmarEliminacion) {
       this.rocketDeliveryService.eliminarIngrediente(idIngredienteStock)
         .subscribe(() => {
-          // Actualizar la lista de ingredientes después de eliminar exitosamente
-          this.getIngredientes();
+          this.getIngredientes(); // Update the ingredients list after successful deletion
         }, (error) => {
-          // Manejar el error en caso de que ocurra
           console.error('Error al eliminar ingrediente:', error);
         });
     }
   }
 
+  onPageChange(pageNumber: number): void {
+    this.currentPage = pageNumber;
+  }
 
+  getPaginatedIngredientes(): Ingrediente[] {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    return this.ingrediente.slice(startIndex, startIndex + this.itemsPerPage);
+  }
 
+  getTotalPages(): number {
+    return Math.ceil(this.ingrediente.length / this.itemsPerPage);
+  }
 }

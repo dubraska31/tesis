@@ -1,35 +1,41 @@
 <button type="button" class="add-button" routerLink="/admin-home" class="fa-solid fa-arrow-left fa-2xl"
   style="color: #007bff;"></button>
 
-<h1>Inventario</h1>
+  <h1>Inventario</h1>
 
-<button type="button" class="add-button" routerLink="/crear-ingrediente">
-  Crear Ingrediente
-</button>
+  <button type="button" class="add-button" routerLink="/crear-ingrediente">
+    Crear Ingrediente
+  </button>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nombre del Ingrediente</th>
-      <th>Descripción</th>
-      <th>Cantidad </th>
-      <th>Acciones </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let ingrediente of ingrediente">
-      <td>{{ ingrediente.nombreIngrediente }}</td>
-      <td>{{ ingrediente.descripcionIngrediente }}</td>
-      <td>{{ ingrediente.cantidadStock }}</td>
-      <td>
-        <button type="button" class=" fa-solid fa-pen-to-square" style="color: #e89521;"
-          routerLink="/editar-ingrediente/{{ingrediente.idIngredienteStock}}">
-        </button>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre del Ingrediente</th>
+        <th>Descripción</th>
+        <th>Cantidad </th>
+        <th>Acciones </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ingrediente of getPaginatedIngredientes()">
+        <td>{{ ingrediente.nombreIngrediente }}</td>
+        <td>{{ ingrediente.descripcionIngrediente }}</td>
+        <td>{{ ingrediente.cantidadStock }}</td>
+        <td>
+          <button type="button" class="fa-solid fa-pen-to-square" style="color: #e89521;"
+            routerLink="/editar-ingrediente/{{ingrediente.idIngredienteStock}}">
+          </button>
 
-        <button type="button" class="fa-solid fa-trash-can" style="color: #d31d09;"
-          (click)="eliminarIngrediente(ingrediente.idIngredienteStock)">
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+          <button type="button" class="fa-solid fa-trash-can" style="color: #d31d09;"
+            (click)="eliminarIngrediente(ingrediente.idIngredienteStock)">
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    <button [disabled]="currentPage === 1" (click)="onPageChange(currentPage - 1)">Previous</button>
+    <span>{{ currentPage }}</span>
+    <button [disabled]="currentPage === getTotalPages()" (click)="onPageChange(currentPage + 1)">Next</button>
+  </div>
