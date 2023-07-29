@@ -14,7 +14,6 @@
       <th>Descripción</th>
       <th>Cantidad </th>
       <th>Acciones </th>
-
     </tr>
   </thead>
   <tbody>
@@ -22,12 +21,15 @@
       <td>{{ ingrediente.nombreIngrediente }}</td>
       <td>{{ ingrediente.descripcionIngrediente }}</td>
       <td>{{ ingrediente.cantidadStock }}</td>
-      <td><button type="button" class=" fa-solid fa-pen-to-square" style="color: #e89521;"
-          routerLink="/editar-ingrediente">
+      <td>
+        <button type="button" class=" fa-solid fa-pen-to-square" style="color: #e89521;"
+          routerLink="/editar-ingrediente/{{ingrediente.idIngredienteStock}}">
         </button>
 
-      <button type="button" class="fa-solid fa-trash-can" style="color: #d31d09;" (click)="eliminarIngrediente(ingrediente.idIngredienteStock)">
-        </button></td>
+        <button type="button" class="fa-solid fa-trash-can" style="color: #d31d09;"
+          (click)="eliminarIngrediente(ingrediente.idIngredienteStock)">
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>

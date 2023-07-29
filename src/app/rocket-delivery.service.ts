@@ -176,6 +176,16 @@ export class RocketDeliveryService {
       }),
     });
   }
+
+  getIngredienteById(id: number): Observable<Ingrediente> {
+    return this.http.get<Ingrediente>(this.rocketDeliveryUrl + 'api/buscar-ingrediente/' + id, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.utilService.getToken(),
+      }),
+    });
+  }
+
   //AGREGAR INGREDIENTE
   crearIngrediente(ingrediente: Ingrediente): Observable<Ingrediente> {
     return this.http.post<Ingrediente>(this.rocketDeliveryUrl + 'api/crear-ingrediente', ingrediente, {
@@ -229,7 +239,7 @@ export class RocketDeliveryService {
     });
   }
 
-   // Editar ingrediente
+  // Editar ingrediente
   editarIngrediente(ingrediente: Ingrediente): Observable<void> {
     return this.http.post<void>(this.rocketDeliveryUrl + 'api/editar-ingrediente', ingrediente, {
       headers: new HttpHeaders({

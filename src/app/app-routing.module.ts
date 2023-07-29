@@ -37,7 +37,7 @@ const routes: Routes = [
   { path: 'ingredientes', component: IngredientesComponent },
   { path: 'crear-ingrediente', component: CrearIngredienteComponent },
   { path: 'perfil-usuario', component: PerfilUsuarioComponent },
-  { path: 'editar-ingrediente', component: EditarIngredienteComponent },
+  { path: 'editar-ingrediente/:id', component: EditarIngredienteComponent },
   { path: "**", redirectTo: "bienvenida" }
 ];
 

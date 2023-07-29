@@ -1,13 +1,12 @@
-
 export class Ingrediente {
-    idIngredienteStock: number;
-    cantidadStock: number;
-    nombreIngrediente: string;
-    descripcionIngrediente : string;
-    imagenIngrediente: string;
-    disponible: boolean;
+  idIngredienteStock: number;
+  cantidadStock: number;
+  nombreIngrediente: string;
+  descripcionIngrediente: string;
+  imagenIngrediente: string;
+  disponible: boolean;
 
-public static buildDefault(): Ingrediente {
+  public static buildDefault(): Ingrediente {
     const ingrediente = new Ingrediente();
 
     ingrediente.idIngredienteStock = null;
@@ -18,4 +17,5 @@ public static buildDefault(): Ingrediente {
 
     return ingrediente;
   }
+
 }
