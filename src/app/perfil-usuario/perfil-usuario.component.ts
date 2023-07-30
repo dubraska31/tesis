@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Contacto } from '../contacto';
 import { RocketDeliveryService } from '../rocket-delivery.service';
 import { Usuario } from '../usuario';
 import { UtilService } from '../util-service';
@@ -12,12 +13,19 @@ import { UtilService } from '../util-service';
 export class PerfilUsuarioComponent {
 
   clave: string;
+  contacto: Contacto;
 
   constructor(
     private router: Router,
     private rocketDeliveryService: RocketDeliveryService,
     private utilService: UtilService
-  ) { }
+  ) {
+    this.contacto = Contacto.buildDefault();
+  }
+
+  ngOnInit(): void {
+    this.buscarContactoByUsername();
+  }
 
   cambiarClave(): void {
     let usuario = new Usuario();
@@ -29,17 +37,26 @@ export class PerfilUsuarioComponent {
     })
   }
 
+  buscarContactoByUsername() {
+    this.rocketDeliveryService.buscarContactoByUsername(this.utilService.getUserName())
+      .subscribe(data => {
+        this.contacto = data;
+      });
+  }
 
-    /*editarContacto(contacto: Contacto): void {
-    this.rocketDeliveryService.editarContacto(contacto).subscribe({
+  editarContacto(): void {
+    this.contacto.usuario.authorities = [];
+
+    this.rocketDeliveryService.editarContacto(this.contacto).subscribe({
       next: () => {
-        this.router.navigate(['/contactos']);
+        alert('Contacto actualizado exitosamente!');
+        this.router.navigate(['/perfil-usuario']);
       },
       error: (e) => {
-        console.error('Error actualizando ingrediente: ' + e.message);
+        console.error('Error editando contacto: ' + e.message);
       },
       complete: () => console.info('Contacto actualizado')
     });
-  }*/
+  }
 
 }

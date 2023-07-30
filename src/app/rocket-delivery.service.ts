@@ -197,27 +197,27 @@ export class RocketDeliveryService {
     });
   }
 
-    // Editar ingrediente
-    editarIngrediente(ingrediente: Ingrediente): Observable<void> {
-      return this.http.put<void>(this.rocketDeliveryUrl + 'api/editar-ingrediente', ingrediente, {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-          Authorization: 'Bearer ' + this.utilService.getToken(),
-        }),
-      });
-    }
+  // Editar ingrediente
+  editarIngrediente(ingrediente: Ingrediente): Observable<void> {
+    return this.http.put<void>(this.rocketDeliveryUrl + 'api/editar-ingrediente', ingrediente, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.utilService.getToken(),
+      }),
+    });
+  }
 
-    // Eliminar ingrediente
-    eliminarIngrediente(idIngredienteStock: number): Observable<void> {
-      const url = `${this.rocketDeliveryUrl}api/eliminar-ingrediente/${idIngredienteStock}`;
+  // Eliminar ingrediente
+  eliminarIngrediente(idIngredienteStock: number): Observable<void> {
+    const url = `${this.rocketDeliveryUrl}api/eliminar-ingrediente/${idIngredienteStock}`;
 
-      return this.http.delete<void>(url, {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-          Authorization: 'Bearer ' + this.utilService.getToken(),
-        }),
-      });
-    }
+    return this.http.delete<void>(url, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.utilService.getToken(),
+      }),
+    });
+  }
 
   //reportes
   descargarReporte(): Observable<any> {
@@ -249,7 +249,7 @@ export class RocketDeliveryService {
       }),
     });
   }
-//-------------------------------------------------------------------------------------------------------
+
   //Editar contacto
   editarContacto(contacto: Contacto): Observable<void> {
     return this.http.put<void>(this.rocketDeliveryUrl + 'api/editar-contacto', contacto, {
@@ -259,15 +259,6 @@ export class RocketDeliveryService {
       }),
     });
   }
-    /*//Obtener el contacto por el id
-    getContactoById(idContacto: number): Observable<Contacto> {
-      return this.http.get<Contacto>(this.rocketDeliveryUrl + 'api/buscar-contacto/' + idContacto, {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-          Authorization: 'Bearer ' + this.utilService.getToken(),
-        }),
-      });
-    }*/
 
   // Eliminar menu
   eliminarMenu(idMenu: number): Observable<void> {

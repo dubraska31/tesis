@@ -25,9 +25,6 @@ export class GenerarUsuarioComponent {
   }
 
   crearCliente(): void {
-    console.log("this.registrarCliente.username: " + this.registrarCliente.username);
-    console.log("this.registrarCliente.password: " + this.registrarCliente.password);
-
     this.rocketDeliveryService.registrar(this.registrarCliente).subscribe({
       next: (data) => {
         if (data === 'EL USUARIO YA EXISTE') {
