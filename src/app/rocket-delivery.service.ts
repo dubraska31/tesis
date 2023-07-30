@@ -261,14 +261,14 @@ export class RocketDeliveryService {
   }
 
   // Eliminar menu
-  eliminarMenu(idMenu: number): Observable<void> {
-    const url = `${this.rocketDeliveryUrl}api/eliminar-menu/${idMenu}`;
+  eliminarMenu(idMenu: number): Observable<string> {
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', 'Bearer ' + this.utilService.getToken());
 
-    return this.http.delete<void>(url, {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + this.utilService.getToken(),
-      }),
+    return this.http.delete<string>(this.rocketDeliveryUrl + 'api/eliminar-menu/' + idMenu, {
+      headers, responseType: 'text' as 'json'
     });
   }
+
 }

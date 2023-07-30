@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Ingrediente } from '../ingrediente';
 import { IngredienteEnMenu } from '../ingrediente-en-menu';
 import { IngredienteEnStock } from '../ingrediente-en-stock';
@@ -16,7 +17,8 @@ export class AgregarMenuComponent {
   ingredientes: Ingrediente[];
 
   constructor(
-    private rocketDeliveryService: RocketDeliveryService
+    private rocketDeliveryService: RocketDeliveryService,
+    private router: Router
   ) {
     this.menu = Menu.buildDefault();
   }
@@ -49,7 +51,9 @@ export class AgregarMenuComponent {
       }
     });
 
-    this.rocketDeliveryService.agregarMenu(this.menu).subscribe();
+    this.rocketDeliveryService.agregarMenu(this.menu).subscribe(() => {
+      this.router.navigate(['/menu']);
+    });
   }
 
 }

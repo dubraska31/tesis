@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
 import { Menu } from '../menu';
 import { RocketDeliveryService } from '../rocket-delivery.service';
 
@@ -14,34 +13,35 @@ export class MenuComponent {
   menus: Menu[] = [];
 
   constructor(
-    private heroService: HeroService,
     private rocketDeliveryService: RocketDeliveryService
   ) { }
 
   ngOnInit(): void {
-    // this.getComidas();
     this.getMenus();
   }
 
   getMenus(): void {
-    this.rocketDeliveryService
-      .getMenus()
-      .subscribe((menus) => (this.menus = menus));
-  }
-
-  getComidas(): void {
-    this.heroService
-      .getHeroes()
-      .subscribe((comidas) => (this.comidas = comidas));
+    this.rocketDeliveryService.getMenus().subscribe((menus) => (this.menus = menus));
   }
 
   eliminarMenu(idMenu: number): void {
     const confirmation = window.confirm('¿Desea eliminar el menú?');
 
     if (confirmation) {
-      this.rocketDeliveryService.eliminarMenu(idMenu).subscribe(() => {
-        this.menus = this.menus.filter((menu) => menu.idMenu !== idMenu);
+      this.rocketDeliveryService.eliminarMenu(idMenu).subscribe({
+        next: (data) => {
+          if (data.includes('No se puede eliminar el menu')) {
+            alert(data);
+          } else {
+            this.getMenus();
+          }
+        },
+        error: (e) => {
+          console.error('error: ' + e.message);
+        },
+        complete: () => console.info('Menu eliminado')
       });
     }
   }
+
 }
