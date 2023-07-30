@@ -19,7 +19,51 @@ export class RocketDeliveryService {
 
   constructor(private http: HttpClient, private utilService: UtilService) { }
 
-  //Login
+  //Listar menu
+  getMenus(): Observable<Menu[]> {
+    return this.http.get<Menu[]>(this.rocketDeliveryUrl + 'api/listar-menus', {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.utilService.getToken(),
+      }),
+    });
+  }
+
+  // listar contactos
+  getContactos(): Observable<Contacto[]> {
+    return this.http.get<Contacto[]>(
+      this.rocketDeliveryUrl + 'api/listar-contactos',
+      {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + this.utilService.getToken(),
+        }),
+      }
+    );
+  }
+
+  // listar ventas
+  getVentas(): Observable<Venta[]> {
+    return this.http.get<Venta[]>(
+      this.rocketDeliveryUrl + 'api/listar-pedidos',
+      {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + this.utilService.getToken(),
+        }),
+      }
+    );
+  }
+
+  getUsuariosSinContacto(): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(this.rocketDeliveryUrl + 'usuarios/listar-usuarios-sin-contacto', {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+    });
+  }
+
+  // login
   login(username: string, password: string): Observable<LoginResponse> {
     const body = new HttpParams()
       .set('username', username)
@@ -37,7 +81,7 @@ export class RocketDeliveryService {
     );
   }
 
-  //Buscar contacto
+  // listar menu
   buscarContactoByUsername(userName: string): Observable<Contacto> {
     return this.http.get<Contacto>(this.rocketDeliveryUrl + 'api/buscar-contacto/username/' + userName, {
       headers: new HttpHeaders({
@@ -47,15 +91,7 @@ export class RocketDeliveryService {
     });
   }
 
-  getUsuariosSinContacto(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(this.rocketDeliveryUrl + 'usuarios/listar-usuarios-sin-contacto', {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      }),
-    });
-  }
-
-  //Registrar usuario
+  // registrar usuario
   registrar(registrarCliente: Registrar): Observable<any> {
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json');
@@ -65,63 +101,18 @@ export class RocketDeliveryService {
     });
   }
 
-  //Listar menu
-  getMenus(): Observable<Menu[]> {
-    return this.http.get<Menu[]>(this.rocketDeliveryUrl + 'api/listar-menus', {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + this.utilService.getToken(),
-      }),
+  // agregar menu
+  agregarMenu(menu: Menu): Observable<string> {
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', 'Bearer ' + this.utilService.getToken());
+
+    return this.http.post<string>(this.rocketDeliveryUrl + 'api/crear-menu', menu, {
+      headers, responseType: 'text' as 'json'
     });
   }
 
-  //Listar contactos
-  getContactos(): Observable<Contacto[]> {
-    return this.http.get<Contacto[]>(
-      this.rocketDeliveryUrl + 'api/listar-contactos',
-      {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-          Authorization: 'Bearer ' + this.utilService.getToken(),
-        }),
-      }
-    );
-  }
-
-  //Listar ventas
-  getVentas(): Observable<Venta[]> {
-    return this.http.get<Venta[]>(
-      this.rocketDeliveryUrl + 'api/listar-pedidos',
-      {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-          Authorization: 'Bearer ' + this.utilService.getToken(),
-        }),
-      }
-    );
-  }
-
-  //Listar ingredientes en stock
-  getIngredientes(): Observable<Ingrediente[]> {
-    return this.http.get<Ingrediente[]>(this.rocketDeliveryUrl + 'api/listar-stock', {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + this.utilService.getToken(),
-      }),
-    });
-  }
-
-  //Crear menu
-  agregarMenu(menu: Menu): Observable<Menu> {
-    return this.http.post<Menu>(this.rocketDeliveryUrl + 'api/crear-menu', menu, {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + this.utilService.getToken(),
-      }),
-    });
-  }
-
-  //Crear pedido
+  // crear pedido
   crearPedido(pedido: Pedido): Observable<Pedido> {
     return this.http.post<Pedido>(this.rocketDeliveryUrl + 'api/crear-pedido', pedido, {
       headers: new HttpHeaders({
@@ -131,7 +122,7 @@ export class RocketDeliveryService {
     });
   }
 
-  //Crear cliente
+  // crear cliente
   crearCliente(contacto: Contacto): Observable<Contacto> {
     return this.http.post<Contacto>(this.rocketDeliveryUrl + 'api/crear-contacto', contacto, {
       headers: new HttpHeaders({
@@ -140,18 +131,7 @@ export class RocketDeliveryService {
       }),
     });
   }
-
-  //AGREGAR INGREDIENTE
-  crearIngrediente(ingrediente: Ingrediente): Observable<Ingrediente> {
-    return this.http.post<Ingrediente>(this.rocketDeliveryUrl + 'api/crear-ingrediente', ingrediente, {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + this.utilService.getToken(),
-      }),
-    });
-  }
-
-  //Estados de los pedidps
+  //estados
   establecerEnProgreso(venta: Venta): Observable<any> {
     return this.http.get<any>(this.rocketDeliveryUrl + 'api/en-progreso/' + venta.idPedido, {
       headers: new HttpHeaders({
@@ -188,6 +168,16 @@ export class RocketDeliveryService {
     });
   }
 
+  //listar ingredientes en stock
+  getIngredientes(): Observable<Ingrediente[]> {
+    return this.http.get<Ingrediente[]>(this.rocketDeliveryUrl + 'api/listar-stock', {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.utilService.getToken(),
+      }),
+    });
+  }
+
   //Obtener el ingrediente por el id
   getIngredienteById(id: number): Observable<Ingrediente> {
     return this.http.get<Ingrediente>(this.rocketDeliveryUrl + 'api/buscar-ingrediente/' + id, {
@@ -198,31 +188,9 @@ export class RocketDeliveryService {
     });
   }
 
-  //reportes
-  descargarReporte(): Observable<any> {
-    const headers = new HttpHeaders()
-      .set('Content-Type', 'application/octet-stream')
-      .set('Authorization', 'Bearer ' + this.utilService.getToken());
-
-    return this.http.get<any>(this.rocketDeliveryUrl + 'api/descargar-reporte', {
-      headers, responseType: 'blob' as 'json'
-    });
-  }
-
-  //descargar cartera  de clientes
-  descargarCartera(): Observable<any> {
-    const headers = new HttpHeaders()
-      .set('Content-Type', 'application/octet-stream')
-      .set('Authorization', 'Bearer ' + this.utilService.getToken());
-
-    return this.http.get<any>(this.rocketDeliveryUrl + 'api/descargar-cartera', {
-      headers, responseType: 'blob' as 'json'
-    });
-  }
-
-  //Cambiar clave usuario
-  cambiarClave(usuario: Usuario): Observable<void> {
-    return this.http.post<void>(this.rocketDeliveryUrl + 'api/cambiar-contraseña', usuario, {
+  //AGREGAR INGREDIENTE
+  crearIngrediente(ingrediente: Ingrediente): Observable<Ingrediente> {
+    return this.http.post<Ingrediente>(this.rocketDeliveryUrl + 'api/crear-ingrediente', ingrediente, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + this.utilService.getToken(),
@@ -252,6 +220,37 @@ export class RocketDeliveryService {
     });
   }
 
+  //reportes
+  descargarReporte(): Observable<any> {
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/octet-stream')
+      .set('Authorization', 'Bearer ' + this.utilService.getToken());
+
+    return this.http.get<any>(this.rocketDeliveryUrl + 'api/descargar-reporte', {
+      headers, responseType: 'blob' as 'json'
+    });
+  }
+
+  descargarCartera(): Observable<any> {
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/octet-stream')
+      .set('Authorization', 'Bearer ' + this.utilService.getToken());
+
+    return this.http.get<any>(this.rocketDeliveryUrl + 'api/descargar-cartera', {
+      headers, responseType: 'blob' as 'json'
+    });
+  }
+
+  //Cambiar clave usuario
+  cambiarClave(usuario: Usuario): Observable<void> {
+    return this.http.post<void>(this.rocketDeliveryUrl + 'api/cambiar-contraseña', usuario, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.utilService.getToken(),
+      }),
+    });
+  }
+
   //Editar contacto
   editarContacto(contacto: Contacto): Observable<void> {
     return this.http.put<void>(this.rocketDeliveryUrl + 'api/editar-contacto', contacto, {
@@ -262,7 +261,7 @@ export class RocketDeliveryService {
     });
   }
 
-  //Eliminar menu
+  // Eliminar menu
   eliminarMenu(idMenu: number): Observable<string> {
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
@@ -270,26 +269,6 @@ export class RocketDeliveryService {
 
     return this.http.delete<string>(this.rocketDeliveryUrl + 'api/eliminar-menu/' + idMenu, {
       headers, responseType: 'text' as 'json'
-    });
-  }
-
-   // Editar menu
-   editarMenu(menu: Menu): Observable<void> {
-     return this.http.put<void>(this.rocketDeliveryUrl + 'api/editar-menu', menu, {
-       headers: new HttpHeaders({
-         'Content-Type': 'application/json',
-         Authorization: 'Bearer ' + this.utilService.getToken(),
-       }),
-     });
-   }
-
-  //Obtener el menu por el id
-  getMenuById(id: number): Observable<Menu> {
-    return this.http.get<Menu>(this.rocketDeliveryUrl + 'api/buscar-menu/' + id, {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + this.utilService.getToken(),
-      }),
     });
   }
 
