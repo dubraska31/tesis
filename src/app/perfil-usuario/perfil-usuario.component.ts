@@ -42,7 +42,6 @@ export class PerfilUsuarioComponent {
     );
   }
 
-
   buscarContactoByUsername() {
     this.rocketDeliveryService.buscarContactoByUsername(this.utilService.getUserName())
       .subscribe(data => {

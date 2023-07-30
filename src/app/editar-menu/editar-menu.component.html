@@ -1,0 +1,64 @@
+<!--<h1 class="margenTop30px">Editar Menu</h1>
+<div class="col-md-12">
+  <div class="card card-container">
+    <div class="letra">
+      <table>
+        <tr>
+          <td><label for="new-hero">Nombre: </label></td>
+          <td>
+            <input [(ngModel)]="menu.nombreMenu" />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="new-hero">Descripcion: </label></td>
+          <td>
+            <input [(ngModel)]="menu.descripcion_menu" />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="new-hero">Precio: </label></td>
+          <td>
+            <input  [(ngModel)]="menu.precio" />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="new-hero">Link Imagen: </label></td>
+          <td>
+            <input [(ngModel)]="menu.imagen_menu" />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="new-hero">Disponibilidad: </label></td>
+          <td>
+            <input type="checkbox" [(ngModel)]="menu.disponible" />
+          </td>
+        </tr>
+
+
+      </table>
+
+      <label for="new-hero">Ingredientes: </label>
+    </div>
+
+    <table>
+      <tr *ngFor="let ingrediente of ingredientes">
+        <td>
+          <input type="checkbox" [(ngModel)]="ingrediente.disponible" />
+        </td>
+        <td>{{ingrediente.nombreIngrediente}}</td>
+        <td>
+          <input type="number" [(ngModel)]="ingrediente.cantidadStock" />
+        </td>
+      </tr>
+    </table>
+
+  </div>
+
+</div>
+
+
+<div>
+  <button type="button" class="add-button" (click)="editarMenu(menu)">
+    Agregar Menu
+  </button>
+</div>-->

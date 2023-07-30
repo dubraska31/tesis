@@ -26,6 +26,7 @@ import { IngredientesComponent } from './ingredientes/ingredientes.component';
 import { CrearIngredienteComponent } from './crear-ingrediente/crear-ingrediente.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { EditarIngredienteComponent } from './editar-ingrediente/editar-ingrediente.component';
+import { EditarMenuComponent } from './editar-menu/editar-menu.component';
 
 @NgModule({
   imports: [
@@ -61,7 +62,8 @@ import { EditarIngredienteComponent } from './editar-ingrediente/editar-ingredie
     IngredientesComponent,
     CrearIngredienteComponent,
     PerfilUsuarioComponent,
-    EditarIngredienteComponent
+    EditarIngredienteComponent,
+    EditarMenuComponent
   ],
   bootstrap: [AppComponent]
 })

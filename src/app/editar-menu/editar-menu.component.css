@@ -1,0 +1,44 @@
+input, select {
+  width: 100%;
+  padding: 3px 5px;
+  margin: 2px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+div {
+  text-align: center;
+}
+
+table {
+  text-align:left;
+
+}
+
+.letra {
+  font-weight: bold;
+  background-color: #f7f7f7;
+  text-align:left;
+  margin-bottom: 10px;
+}
+
+.add-button {
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: #007bff;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+
+}
+
+label {
+display: block;
+margin-top: 10px;
+}
+
