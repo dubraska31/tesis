@@ -11,7 +11,7 @@ import { Ingrediente } from '../ingrediente';
 })
 export class EditarMenuComponent {
 
-  /*menu: Menu;
+  menu: Menu;
   ingredientes: Ingrediente[];
 
   constructor(
@@ -20,6 +20,7 @@ export class EditarMenuComponent {
     private rocketDeliveryService: RocketDeliveryService
   ) {
     this.menu = Menu.buildDefault();
+    //this.ingredientes = Ingrediente.buildDefault();
   }
 
   ngOnInit(): void {
@@ -53,6 +54,6 @@ export class EditarMenuComponent {
         ingrediente.disponible = false;
       });
     });
-  }*/
+  }
 
 }

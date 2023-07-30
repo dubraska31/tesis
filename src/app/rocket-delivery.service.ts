@@ -272,4 +272,25 @@ export class RocketDeliveryService {
     });
   }
 
+
+   // Editar menu
+   editarMenu(menu: Menu): Observable<void> {
+    return this.http.put<void>(this.rocketDeliveryUrl + 'api/editar-menu', menu, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.utilService.getToken(),
+      }),
+    });
+  }
+
+ //Obtener el menu por el id
+ getMenuById(id: number): Observable<Menu> {
+   return this.http.get<Menu>(this.rocketDeliveryUrl + 'api/menu/' + id, {
+     headers: new HttpHeaders({
+       'Content-Type': 'application/json',
+       Authorization: 'Bearer ' + this.utilService.getToken(),
+     }),
+   });
+ }
+
 }
