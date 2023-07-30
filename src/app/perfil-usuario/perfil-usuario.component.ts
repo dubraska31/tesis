@@ -32,10 +32,16 @@ export class PerfilUsuarioComponent {
     usuario.password = this.clave;
     usuario.username = this.utilService.getUserName();
 
-    this.rocketDeliveryService.cambiarClave(usuario).subscribe(() => {
-      this.router.navigate(['/bienvenida']);
-    })
+    this.rocketDeliveryService.cambiarClave(usuario).subscribe(
+      () => {
+        alert('Se cambió la clave exitosamente!');
+      },
+      (error) => {
+        alert('No se pudo cambiar la clave');
+      }
+    );
   }
+
 
   buscarContactoByUsername() {
     this.rocketDeliveryService.buscarContactoByUsername(this.utilService.getUserName())
