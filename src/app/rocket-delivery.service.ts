@@ -102,12 +102,13 @@ export class RocketDeliveryService {
   }
 
   // agregar menu
-  agregarMenu(menu: Menu): Observable<Menu> {
-    return this.http.post<Menu>(this.rocketDeliveryUrl + 'api/crear-menu', menu, {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + this.utilService.getToken(),
-      }),
+  agregarMenu(menu: Menu): Observable<string> {
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', 'Bearer ' + this.utilService.getToken());
+
+    return this.http.post<string>(this.rocketDeliveryUrl + 'api/crear-menu', menu, {
+      headers, responseType: 'text' as 'json'
     });
   }
 

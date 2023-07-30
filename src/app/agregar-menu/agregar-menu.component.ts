@@ -51,8 +51,18 @@ export class AgregarMenuComponent {
       }
     });
 
-    this.rocketDeliveryService.agregarMenu(this.menu).subscribe(() => {
-      this.router.navigate(['/menu']);
+    this.rocketDeliveryService.agregarMenu(this.menu).subscribe({
+      next: (data) => {
+        if (data.includes('CREADO')) {
+          this.router.navigate(['/menu']);
+        } else {
+          alert(data);
+        }
+      },
+      error: (e) => {
+        console.error('Error actualizando ingrediente: ' + e.message);
+      },
+      complete: () => console.info('fin')
     });
   }
 
