@@ -3,24 +3,25 @@
 </button>
 
 <h1>Perfil Usuario</h1>
-<br>
-<div>
-  <div>
+
+
+<div class="col-md-12">
+  <div class="card-container">
     <table>
       <tr>
         <td><label for="new-hero">Clave nueva: </label></td>
-        <td><input [(ngModel)]="clave" /></td>
+        <td><input type="password" [(ngModel)]="clave" /></td>
       </tr>
-      <tr>
-        <td>
-          <button type="button" (click)="cambiarClave()">
-            Cambiar
-          </button>
-        </td>
-      </tr>
+
     </table>
+
+    <button type="button" class="add-button" (click)="cambiarClave()" >
+      Cambiar
+    </button>
   </div>
 </div>
+
+
 
 <hr>
 <div class="col-md-12">
@@ -40,18 +41,17 @@
       </tr>
       <tr>
         <td><label for="new-hero">Telefono: </label></td>
-        <td><input type="number" [(ngModel)]="contacto.telefono" /></td>
+        <td><input [(ngModel)]="contacto.telefono" /></td>
       </tr>
       <tr>
         <td><label for="new-hero">Direccion: </label></td>
         <td><input [(ngModel)]="contacto.direccion" /></td>
       </tr>
     </table>
+
+    <button type="button" class="add-button" (click)="editarContacto()" >
+      Editar contacto
+    </button>
   </div>
 </div>
 
-<div>
-  <button type="button" class="add-button" (click)="editarContacto()">
-    Editar contacto
-  </button>
-</div>
